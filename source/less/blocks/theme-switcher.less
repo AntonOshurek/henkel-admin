@@ -1,0 +1,73 @@
+.theme-switcher {
+  position: relative;
+  margin: 0;
+  margin-left: -50px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: none;
+
+  &:hover {
+    box-shadow: var(--inner-shadow);
+  }
+}
+/* Switcher Radio */
+.theme-switcher__radio {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  transition: filter 0.1s ease-in;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--light {
+    background-image: url('../../img/icons/light.svg');
+  }
+
+  &--auto {
+    background-image: url('../../img/icons/auto.svg');
+  }
+
+  &--dark {
+    background-image: url('../../img/icons/dark.svg');
+  }
+}
+
+/* Switcher Status */
+.theme-switcher__status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: url('../../img/icons/status.svg');
+  background-size: 30px;
+  background-position: center;
+  transition: background-position 0.1s ease-in;
+}
+
+.theme-switcher__radio:focus-visible ~ .theme-switcher__status {
+  box-shadow: 0 0 0 2px black;
+}
+
+.theme-switcher__radio--light:checked ~ .theme-switcher__status {
+  background-position: left 6px center;
+}
+
+.theme-switcher__radio--auto:checked ~ .theme-switcher__status {
+  background-position: center center;
+}
+
+.theme-switcher__radio--dark:checked ~ .theme-switcher__status {
+  background-position: right 6px center;
+}

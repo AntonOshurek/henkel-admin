@@ -1,0 +1,25 @@
+.neumorphic-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: var(--shadow);
+  border-radius: 15px;
+
+  cursor: pointer;
+  transition: .3s ease;
+
+  &:active {
+    box-shadow: var(--inner-shadow);
+  }
+}
+
+.neumorphic-search {
+  border-radius: 15px;
+  border: none;
+  box-shadow: var(--inner-shadow);
+  background: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--shadow);
+  }
+}
