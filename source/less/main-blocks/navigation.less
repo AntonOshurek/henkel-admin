@@ -1,21 +1,23 @@
 .navigation {
-  // position: fixed;
-  // left: 0;
-  // top: 0;
-  // width: 300px;
-  // overflow-x: hidden;
   width: auto;
-  height: 100%;
+  max-height: 100vh;
   grid-area: nav;
+  overflow-y: auto;
+  position: relative;
 
-  // transition: transform 1s ease;
-  // transform: translateX(-100%);
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-moz-scrollbar {
+    width: 0px;
+  }
 }
 
 .open {
-  // width: 300px;
-  // transition: transform 1s ease;
-  // transform: translateX(0%);
   & > .navigation__Wrap  {
     width: 300px;
     transform: translateX(0%);
@@ -64,7 +66,6 @@
 }
 
 .navigation__item {
-  // padding: 5px 0;
   position: relative;
 
   &::before {
