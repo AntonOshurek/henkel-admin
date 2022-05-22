@@ -19,14 +19,23 @@
 
 .open {
   & > .navigation__Wrap  {
-    width: 300px;
+    width: @basic-nav-width;
     transform: translateX(0%);
     transition: transform 1s ease, width 1s ease;
+  }
+
+  @media (max-width: @tablet-width) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    background-color: var(--menu-mobile-bg-color);
   }
 }
 
 .navigation__Wrap {
-  padding: 20px 0 20px 20px;
+  padding: @nav-wraper-padding;
   width: 0px;
   transform: translateX(-100%);
   overflow-x: hidden;
@@ -41,13 +50,13 @@
 
 .navigation__logo {
   width: 100%;
-  min-width: 280px;
+  min-width: @basic-nav-width - (@nav-wraper-padding * 2);
   height: min-content;
   object-fit: contain;
 }
 
 .navigation__list {
-  min-width: 300px;
+  min-width: @basic-nav-width - (@nav-wraper-padding * 2);
   width: 100%;
   display: flex;
   flex-direction: column;

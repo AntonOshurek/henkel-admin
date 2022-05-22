@@ -6,6 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--open-menu {
+    @media (max-width: @tablet-width) {
+      & .header__menu-btn {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        z-index: 1;
+      }
+    }
+  }
 }
 
 .header__wrap {

@@ -1,15 +1,18 @@
 const menuBtn = document.querySelector('.header__menu-btn');
 const nav = document.querySelector('.navigation');
+const header = document.querySelector('.header');
 
 let navStatus = false;
 
 const openNav = () => {
   nav.classList.add('open');
+  header.classList.add('header--open-menu');
   navStatus = true;
 };
 
 const closeNav = () => {
   nav.classList.remove('open');
+  header.classList.remove('header--open-menu');
   navStatus = false;
 }
 
