@@ -33,7 +33,14 @@ const menu = () => {
   menuBtn.addEventListener('click', evt => {
     navStatus ? closeNav() : openNav();
   });
-};
+}; // const startPageWidthValue = window.innerWidth;
+// console.log(startPageWidthValue);
+// window.addEventListener('resize', () => {
+//   var w = document.documentElement.clientWidth;
+//   w >= 900 ? openNav() : closeNav();
+//   console.log(w);
+// });
+
 
 
 
