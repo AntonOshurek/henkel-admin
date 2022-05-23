@@ -20,6 +20,15 @@
         animation-name: show-mobile-btn;
       }
     }
+
+    & .header__welcome {
+      width: 0px;
+      overflow: hidden;
+    }
+
+    & .header__search-input {
+      width: 100%;
+    }
   }
 }
 
@@ -94,7 +103,7 @@
 
 .header__search {
   position: relative;
-  width: min-content;
+  // width: 100%;
   justify-self: center;
 
   @media (max-width: @tablet-width) {
