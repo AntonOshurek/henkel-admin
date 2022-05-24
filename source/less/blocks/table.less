@@ -7,44 +7,58 @@
 
 
 .table {
-  width: 600px;
+  width: 100%;
   border-spacing: 0;
-  color: #212121;
   text-align: center;
-  overflow: hidden;
+  // overflow: hidden;
+
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  color: #212121;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
+
 .table thead{
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
 }
+
 .table th{
   padding: 7px;
 }
 
-.table>tbody>tr>td {
+.table > tbody {
+  overflow: hidden;
+}
+
+.table > tbody > tr > td {
   padding: 10px;
   font-size: 14px;
   position: relative;
+  cursor: pointer;
 }
 
-
-.table>tbody>tr:hover {
+.table > tbody > tr:hover {
   padding: 20px;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
 
-.table tr td:first-child::before {
-  content: "";
-  position: absolute;
-  padding: 7px;
-  top: 0;
-  left: -5000px;
-  width: 10000px;
-  height: 100%;
-  z-index: -10;
-}
+// .table tr td:first-child::before {
+//   content: "";
+//   position: absolute;
+//   padding: 7px;
+//   top: 0;
+
+//   // left: 0;
+//   // width: 100%;
+//   left: -5000px;
+//   width: 10000px;
+
+//   height: 100%;
+//   z-index: -10;
+// }
 
 .table td:hover::after {
   content: "";
@@ -52,8 +66,13 @@
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);
   left: 0;
-  top: -5000px;
-  height: 10000px;
+
+  top: 0;
+  height: 100%;
+  border-radius: 8px;
+  // top: -5000px;
+  // height: 10000px;
+
   width: 100%;
   z-index: -1;
 }
