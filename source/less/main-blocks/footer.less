@@ -11,6 +11,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: @tablet-width) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 }
 
 .contacts-list {
@@ -56,16 +62,6 @@
   }
 }
 
-.footer__suport {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.footer__sup-link {
-}
-
 .facebook:hover {
   background: #3b5998;
 }
@@ -78,3 +74,28 @@
   border-radius: 50%;
   background:linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
+
+.footer__suport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+
+  font-size: 13px;
+  color: var(--sub-text-color);
+
+  @media (max-width: @tablet-width) {
+    align-items: center;
+  }
+}
+
+.footer__sup-link {
+  color: var(--sub-text-color);
+
+  &:hover,
+  &:focus {
+    color: var(--main-color);
+  }
+}
+
