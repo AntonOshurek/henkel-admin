@@ -9,13 +9,13 @@
   table-layout: fixed;
   border-collapse: collapse;
 
-  color: #212121;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
+  // color: #212121;
+  color: var(--standart-text-color);
+  box-shadow: var(--main-table-shadow);
 }
 
 .table thead{
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
+  box-shadow: var(--main-table-head-shadow);
 }
 
 .table th{
@@ -36,10 +36,14 @@
   cursor: pointer;
 }
 
+.table > tbody > tr > td:hover,
+.table > tbody > tr > td:focus {
+  color: var(--table-td-text-hover);
+}
+
 .table > tbody > tr:hover {
   padding: 20px;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
+  box-shadow: var(--main-table-shadow);
 }
 
 // .table tr td:first-child::before {
@@ -60,8 +64,7 @@
 .table td:hover::after {
   content: "";
   position: absolute;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
+  box-shadow: var(--main-table-shadow);
   left: 0;
 
   top: 0;
