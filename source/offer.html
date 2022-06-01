@@ -28,14 +28,14 @@
     }
   </script>
 
-  <title>Henkel Admin</title>
+  <title>Document</title>
 
-  <!--dark and light theme styles-->
-  <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="css/style.min.css">
+    <!--dark and light theme styles-->
+    <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/style.min.css">
 
-  <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
 </head>
 <body class="body">
   <header class="header">
@@ -66,7 +66,8 @@
       <ul class="navigation__list">
         <h2 class="navigation__title">Предложения</h2>
         <li class="navigation__item navigation__item--active">
-          <a class="navigation__link navigation__link--offers-all" href="#">Все предложения</a>
+          <a class="navigation__link navigation__link--offers-all" href="index.html">Все предложения</a>
+          <span class="navigation__inner-page">UFX/54894/2022</span>
         </li>
         <li class="navigation__item">
           <a class="navigation__link navigation__link--offers-date" href="#">Предложения по дате</a>
@@ -92,94 +93,35 @@
       </ul>
     </div>
   </nav>
-  <main class="main">
-    <section class="main__content">
-      <div class="main__scroll-wrap">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Column 1</th>
-              <th>Column 2</th>
-              <th>Column 3</th>
-              <th>Column 4</th>
-              <th>Column 5</th>
-              <th>Column 6</th>
-              <th>Column 7</th>
-              <th>Column 8</th>
-              <th>Column 9</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-            <tr>
-              <td><a href="offer.html">Cell 1</a></td>
-              <td><a href="offer.html">Cell 2</a></td>
-              <td><a href="offer.html">Cell 3</a></td>
-              <td><a href="offer.html">Cell 4</a></td>
-              <td><a href="offer.html">Cell 5</a></td>
-              <td><a href="offer.html">Cell 6</a></td>
-              <td><a href="offer.html">Cell 7</a></td>
-              <td><a href="offer.html">Cell 8</a></td>
-              <td><a href="offer.html">Cell 9</a></td>
-            </tr>
-          </tbody>
-        </table>
+  <main class="main main__wrap">
+      <div class="offer container">
+        <ol class="crumbs">
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__link--dropdown-arrow" href="#">Главная</a>
+            <div class="crumbs__dropdown">
+              <a class="crumbs__droped-link" href="index.html">Предложения</a>
+              <a class="crumbs__droped-link" href="#">Инвестиции</a>
+              <a class="crumbs__droped-link" href="#">Каталог продуктов</a>
+            </div>
+          </li>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__link--dropdown-arrow" href="index.html">Предложения</a>
+            <div class="crumbs__dropdown">
+              <a class="crumbs__droped-link" href="#">Все предложения</a>
+              <a class="crumbs__droped-link" href="#">Предложения по дате</a>
+            </div>
+          </li>
+          <li class="crumbs__item">
+            <a class="crumbs__link" href="#">Все предложения</a>
+          </li>
+          <li class="crumbs__item crumbs__item--current">
+            предложение UFX/54894/2022
+          </li>
+        </ol>
+        <section>
+          <h2>Информация о предложении UFX/54894/2022</h2>
+        </section>
       </div>
-    </section>
   </main>
   <footer class="footer">
     <div class="footer__wrap container ">
