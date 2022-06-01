@@ -31,10 +31,19 @@
   font-size: 14px;
   position: relative;
   cursor: pointer;
+
+  & > a {
+    text-decoration: none;
+    color: var(--standart-text-color);
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+  }
 }
 
-.table > tbody > tr > td:hover,
-.table > tbody > tr > td:focus {
+.table > tbody > tr > td:hover > a,
+.table > tbody > tr > td:focus > a{
   color: var(--main-color);
 }
 
