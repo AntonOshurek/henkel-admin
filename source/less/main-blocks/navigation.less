@@ -109,12 +109,14 @@
     height: calc(100%);
     background-color: transparent;
     border-radius: 8px;
+    transition: @standart-hover-animation;
   }
 
   &:hover,
   &:focus {
     &::before {
       background-color: var(--menu-hover-color);
+      transition: @standart-hover-animation;
     }
   }
 
@@ -125,8 +127,27 @@
 
     & > .navigation__link {
       color: var(--main-color);
-      pointer-events: none;
+
+      &:hover {
+        color: var(--standart-text-color);
+        transition: @standart-hover-animation;
+      }
     }
+  }
+}
+//only for opened inner pages!!!
+.navigation__inner-page {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  color: var(--sub-text-color);
+
+  &::before {
+    padding: 5px 5px 5px 5px;
+    color:var(--main-color);
+    font-weight: 400;
+    content: '>';
   }
 }
 
@@ -137,6 +158,7 @@
   font-family: 'Jost', sans-serif;
   font-weight: 400;
   color: var(--standart-text-color);
+  transition: @standart-hover-animation;
   font-size: 22px;
   text-decoration: none;
 
@@ -149,6 +171,7 @@
 
   &:hover {
     color: var(--main-color);
+    transition: @standart-hover-animation;
   }
 
   &::after {
