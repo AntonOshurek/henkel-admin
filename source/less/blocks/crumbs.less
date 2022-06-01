@@ -1,0 +1,83 @@
+.crumbs {
+  display: flex;
+  list-style: none;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 0;
+
+  & li:hover > a {
+    color: #0073e6;
+  }
+}
+.crumbs__item {
+  padding: 3px;
+
+  &--current {
+    color: var(--sub-text-color);
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  &:after {
+    padding: 5px 5px 5px 5px;
+    color:#7D8597;
+    font-weight: 400;
+    content: '>';
+  }
+
+  &:hover .crumbs__dropdown {
+    display: block;
+  }
+}
+
+.crumbs__link {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sub-text-color);
+  transition: all 0.1s linear;
+
+  &--dropdown-arrow {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS40LjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYgMTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMzODM5NDI7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04LDEyLjJMMCwzLjhoMTZMOCwxMi4yeiIvPg0KPC9zdmc+DQo=');
+    background-size: 8px;
+    background-position: right;
+    background-repeat: no-repeat;
+    transition: all 0.1s linear;
+    padding: 0 16px 0 0;
+  }
+}
+
+.crumbs__dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  transition: all 0.6s;
+
+  &:hover ~ .crumbs__link,
+  &:focus .crumbs__link {
+    color: #0073e6;
+  }
+
+  & > a:hover .crumbs__link,
+  & > a:focus .crumbs__link {
+    color: #0073e6;
+  }
+}
+
+.crumbs__droped-link {
+  color: #16172e;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: all 0.1s linear;
+
+  &:hover,
+  &:focus{
+    color: #0073e6;
+    transition: all 0.1s linear;
+  }
+}
