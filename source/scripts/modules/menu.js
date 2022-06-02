@@ -1,35 +1,82 @@
-const menuBtn = document.querySelector('.header__menu-btn');
-const nav = document.querySelector('.navigation');
-const header = document.querySelector('.header');
+import { KEYCODE_TAB, NAVIGATION_STATUS } from '../utils/constants'
+import {
+  bodyElement, headerElement,
+  navigationElement, menuButtonElement,
+  navigationLinksArray
+} from '../utils/node-elements';
 
-let navStatus = false;
+const FIRST_MENU_FOCUS_ELEMENT = navigationLinksArray[0];
+const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length - 1];
 
-const openNav = () => {
-  nav.classList.add('open');
-  header.classList.add('header--open-menu');
-  navStatus = true;
+let currentNavigationStatus = null;
+let lastFocusInPage = null;
+navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
+
+function onEscKeydown(evt) {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    lastFocusInPage.focus();
+    closeNavigation();
+  }
 };
 
-const closeNav = () => {
-  nav.classList.remove('open');
-  header.classList.remove('header--open-menu');
-  navStatus = false;
+function openNavigation() {
+  navigationElement.classList.add('open');
+  headerElement.classList.add('header--open-menu');
+  navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
+  navigationLinksArray[0].focus();
+
+  document.addEventListener('keydown', onEscKeydown);
+  bodyElement.addEventListener('keydown', menuFocus);
+
+  currentNavigationStatus = NAVIGATION_STATUS.OPEN;
+};
+
+function closeNavigation() {
+  navigationElement.classList.remove('open');
+  headerElement.classList.remove('header--open-menu');
+  navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
+
+  document.removeEventListener('keydown', onEscKeydown);
+  bodyElement.removeEventListener('keydown', menuFocus);
+
+  currentNavigationStatus = NAVIGATION_STATUS.CLOSE;
 }
 
 const menu = () => {
-  menuBtn.addEventListener('click', (evt) => {
-    navStatus ? closeNav() : openNav();
+  menuButtonElement.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
+      lastFocusInPage = null
+      closeNavigation()
+    } else {
+      lastFocusInPage = document.activeElement
+      openNavigation()
+    }
   });
 };
 
-// const startPageWidthValue = window.innerWidth;
-// console.log(startPageWidthValue);
-
-// window.addEventListener('resize', () => {
-//   var w = document.documentElement.clientWidth;
-//   w >= 900 ? openNav() : closeNav();
-//   console.log(w);
-// });
+function menuFocus(e) {
+  if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+    if ( e.shiftKey ) /* shift + tab */ {
+      if (document.activeElement === FIRST_MENU_FOCUS_ELEMENT) {
+        e.preventDefault();
+        menuButtonElement.focus();
+      }
+      else if(document.activeElement === menuButtonElement) {
+        e.preventDefault();
+        LAST_MENU_FOCUS_ELEMENT.focus();
+      }
+    } else /*tab*/  {
+      if (document.activeElement === LAST_MENU_FOCUS_ELEMENT) {
+        e.preventDefault();
+        menuButtonElement.focus();
+      } else if(document.activeElement === menuButtonElement) {
+        e.preventDefault();
+        FIRST_MENU_FOCUS_ELEMENT.focus();
+      }
+    }
+  }
+}
 
 export { menu };
-
