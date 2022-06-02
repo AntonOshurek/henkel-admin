@@ -5,7 +5,8 @@
   align-items: center;
   padding: 10px 0;
 
-  & li:hover > a {
+  & li:hover > a,
+  & li:focus > a {
     transition: @crumbs-hover-animation;
     color: var(--main-color);
   }
@@ -35,6 +36,10 @@
   font-weight: 400;
   color: var(--sub-text-color);
   transition: @crumbs-hover-animation;
+
+  &:focus ~ .crumbs__dropdown {
+    display: block;
+  }
 
   &--dropdown-arrow {
     padding-right: 12px;

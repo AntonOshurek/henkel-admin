@@ -1,18 +1,32 @@
 const menuBtn = document.querySelector('.header__menu-btn');
 const nav = document.querySelector('.navigation');
 const header = document.querySelector('.header');
+const navLinks = document.querySelectorAll('.navigation__link');
 
 let navStatus = false;
+navLinks.forEach((link) => link.setAttribute('tabindex', '-1'));
 
-const openNav = () => {
+const onEscKeydown = (evt) => {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    closeNav();
+  }
+};
+
+function openNav() {
   nav.classList.add('open');
   header.classList.add('header--open-menu');
+  navLinks.forEach((link) => link.removeAttribute('tabindex'));
+  navLinks[0].focus();
+  document.addEventListener('keydown', onEscKeydown);
   navStatus = true;
 };
 
-const closeNav = () => {
+function closeNav() {
   nav.classList.remove('open');
   header.classList.remove('header--open-menu');
+  navLinks.forEach((link) => link.setAttribute('tabindex', '-1'));
+  document.removeEventListener('keydown', onEscKeydown);
   navStatus = false;
 }
 
@@ -22,14 +36,4 @@ const menu = () => {
   });
 };
 
-// const startPageWidthValue = window.innerWidth;
-// console.log(startPageWidthValue);
-
-// window.addEventListener('resize', () => {
-//   var w = document.documentElement.clientWidth;
-//   w >= 900 ? openNav() : closeNav();
-//   console.log(w);
-// });
-
 export { menu };
-
