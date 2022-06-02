@@ -1,75 +1,83 @@
-const menuBtn = document.querySelector('.header__menu-btn');
-const nav = document.querySelector('.navigation');
-const header = document.querySelector('.header');
-const navLinks = document.querySelectorAll('.navigation__link');
-const body = document.querySelector('.body');
+const bodyElement = document.querySelector('.body');
+const headerElement = document.querySelector('.header');
+const navigationElement = document.querySelector('.navigation');
+const menuButtonElement = document.querySelector('.header__menu-btn');
+const navigationLinksArray = document.querySelectorAll('.navigation__link');
 
-let navStatus = false;
+const KEYCODE_TAB = 9;
+const FIRST_MENU_FOCUS_ELEMENT = navigationLinksArray[0];
+const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length - 1];
+const NAVIGATION_STATUS = {
+  OPEN: 'open',
+  CLOSE: 'close',
+};
+
+let currentNavigationStatus = null;
 let lastFocusInPage = null;
-navLinks.forEach((link) => link.setAttribute('tabindex', '-1'));
+navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
-const onEscKeydown = (evt) => {
+function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     lastFocusInPage.focus();
-    console.log(lastFocusInPage)
     closeNav();
   }
 };
 
 function openNav() {
-  nav.classList.add('open');
-  header.classList.add('header--open-menu');
-  navLinks.forEach((link) => link.removeAttribute('tabindex'));
-  navLinks[0].focus();
-  document.addEventListener('keydown', onEscKeydown);
-  body.addEventListener('keydown', menuFocus);
+  navigationElement.classList.add('open');
+  headerElement.classList.add('header--open-menu');
+  navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
+  navigationLinksArray[0].focus();
 
-  navStatus = true;
+  document.addEventListener('keydown', onEscKeydown);
+  bodyElement.addEventListener('keydown', menuFocus);
+
+  currentNavigationStatus = NAVIGATION_STATUS.OPEN;
 };
 
 function closeNav() {
-  nav.classList.remove('open');
-  header.classList.remove('header--open-menu');
-  navLinks.forEach((link) => link.setAttribute('tabindex', '-1'));
-  document.removeEventListener('keydown', onEscKeydown);
-  body.removeEventListener('keydown', menuFocus);
+  navigationElement.classList.remove('open');
+  headerElement.classList.remove('header--open-menu');
+  navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
-  navStatus = false;
+  document.removeEventListener('keydown', onEscKeydown);
+  bodyElement.removeEventListener('keydown', menuFocus);
+
+  currentNavigationStatus = NAVIGATION_STATUS.CLOSE;
 }
 
 const menu = () => {
-  menuBtn.addEventListener('click', (evt) => {
-    navStatus ? lastFocusInPage = null : lastFocusInPage = document.activeElement
-    navStatus ? closeNav() : openNav();
+  menuButtonElement.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
+      lastFocusInPage = null
+      closeNav()
+    } else {
+      lastFocusInPage = document.activeElement
+      openNav()
+    }
   });
 };
 
 function menuFocus(e) {
-  const elementsArray = navLinks;
-  const firstFocusableEl = elementsArray[0];
-  const lastFocusableEl = elementsArray[elementsArray.length - 1];
-  const KEYCODE_TAB = 9;
-
-  const isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-
-  if (isTabPressed) {
+  if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
     if ( e.shiftKey ) /* shift + tab */ {
-      if (document.activeElement === firstFocusableEl) {
+      if (document.activeElement === FIRST_MENU_FOCUS_ELEMENT) {
         e.preventDefault();
-        menuBtn.focus();
+        menuButtonElement.focus();
       }
-      else if(document.activeElement === menuBtn) {
+      else if(document.activeElement === menuButtonElement) {
         e.preventDefault();
-        lastFocusableEl.focus();
+        LAST_MENU_FOCUS_ELEMENT.focus();
       }
-    } else {
-      if (document.activeElement === lastFocusableEl) {
+    } else /*tab*/  {
+      if (document.activeElement === LAST_MENU_FOCUS_ELEMENT) {
         e.preventDefault();
-        menuBtn.focus();
-      } else if(document.activeElement === menuBtn) {
+        menuButtonElement.focus();
+      } else if(document.activeElement === menuButtonElement) {
         e.preventDefault();
-        firstFocusableEl.focus();
+        FIRST_MENU_FOCUS_ELEMENT.focus();
       }
     }
   }
