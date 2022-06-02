@@ -1,16 +1,12 @@
-const bodyElement = document.querySelector('.body');
-const headerElement = document.querySelector('.header');
-const navigationElement = document.querySelector('.navigation');
-const menuButtonElement = document.querySelector('.header__menu-btn');
-const navigationLinksArray = document.querySelectorAll('.navigation__link');
+import { KEYCODE_TAB, NAVIGATION_STATUS } from '../utils/constants'
+import {
+  bodyElement, headerElement,
+  navigationElement, menuButtonElement,
+  navigationLinksArray
+} from '../utils/node-elements';
 
-const KEYCODE_TAB = 9;
 const FIRST_MENU_FOCUS_ELEMENT = navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length - 1];
-const NAVIGATION_STATUS = {
-  OPEN: 'open',
-  CLOSE: 'close',
-};
 
 let currentNavigationStatus = null;
 let lastFocusInPage = null;
@@ -20,11 +16,11 @@ function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     lastFocusInPage.focus();
-    closeNav();
+    closeNavigation();
   }
 };
 
-function openNav() {
+function openNavigation() {
   navigationElement.classList.add('open');
   headerElement.classList.add('header--open-menu');
   navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
@@ -36,7 +32,7 @@ function openNav() {
   currentNavigationStatus = NAVIGATION_STATUS.OPEN;
 };
 
-function closeNav() {
+function closeNavigation() {
   navigationElement.classList.remove('open');
   headerElement.classList.remove('header--open-menu');
   navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
@@ -52,10 +48,10 @@ const menu = () => {
     evt.preventDefault();
     if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
       lastFocusInPage = null
-      closeNav()
+      closeNavigation()
     } else {
       lastFocusInPage = document.activeElement
-      openNav()
+      openNavigation()
     }
   });
 };
