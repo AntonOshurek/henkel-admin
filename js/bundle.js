@@ -300,7 +300,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();
-(0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
+(0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)(); // document.addEventListener('keydown', (evt) => {
+//   console.log(document.activeElement)
+// })
 }();
 /******/ })()
 ;
