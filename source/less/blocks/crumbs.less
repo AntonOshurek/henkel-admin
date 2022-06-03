@@ -1,17 +1,21 @@
 .crumbs {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   justify-content: start;
+  flex-wrap: wrap;
   align-items: center;
   padding: 10px 0;
 
-  & li:hover > a,
-  & li:focus > a {
+  & li:hover > .crumbs__link,
+  & li:focus-within > .crumbs__link {
     transition: @crumbs-hover-animation;
     color: var(--main-color);
   }
 }
 .crumbs__item {
+  position: relative;
+
   &--current {
     color: var(--sub-text-color);
     font-size: 14px;
@@ -25,8 +29,12 @@
     content: '>';
   }
 
-  &:hover .crumbs__dropdown {
-    display: block;
+  @media (any-hover: hover) {
+    &:hover .crumbs__dropdown,
+    &:focus-within .crumbs__dropdown {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 }
 
@@ -37,29 +45,35 @@
   color: var(--sub-text-color);
   transition: @crumbs-hover-animation;
 
-  &:focus ~ .crumbs__dropdown {
-    display: block;
-  }
-
   &--dropdown-arrow {
     padding-right: 12px;
-  }
 
-  &--dropdown-arrow:after {
-    content: '';
-    position: absolute;
-    top: 40%;
-    right: 0;
-    border-top: 8px solid var(--sub-text-color);
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 40%;
+      right: 0;
+      border-top: 8px solid var(--sub-text-color);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+    }
+
+    @media (any-hover: none) {
+      padding-right: 0;
+      &:after {
+        display: none;
+      }
+    }
   }
 }
 
 .crumbs__dropdown {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   min-width: 120px;
+  padding: 10px;
+  list-style: none;
   background-color: var(--back-color);
   box-shadow: var(--shadow);
   box-shadow: var(--inner-shadow);
@@ -68,8 +82,9 @@
 }
 
 .crumbs__droped-link {
+  white-space: nowrap;
   color: var(--sub-text-color);
-  padding: 12px 16px;
+  padding: 4px;
   text-decoration: none;
   display: block;
   text-align: left;
