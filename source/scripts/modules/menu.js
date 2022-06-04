@@ -8,6 +8,8 @@ import {
 const FIRST_MENU_FOCUS_ELEMENT = navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length - 1];
 
+const screenWidth = window.screen.width;
+
 let currentNavigationStatus = null;
 let lastFocusInPage = null;
 navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
@@ -26,6 +28,8 @@ function openNavigation() {
   navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
   navigationLinksArray[0].focus();
 
+  screenWidth < 900 ? bodyElement.classList.add('body--scrolloff') : null;
+
   document.addEventListener('keydown', onEscKeydown);
   bodyElement.addEventListener('keydown', menuFocus);
 
@@ -36,6 +40,8 @@ function closeNavigation() {
   navigationElement.classList.remove('open');
   headerElement.classList.remove('header--open-menu');
   navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
+
+  screenWidth < 900 ? bodyElement.classList.remove('body--scrolloff') : null;
 
   document.removeEventListener('keydown', onEscKeydown);
   bodyElement.removeEventListener('keydown', menuFocus);
