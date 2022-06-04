@@ -1,8 +1,11 @@
 .main {
   height: 100%;
   width: 100%;
-  padding: 0 20px;
   grid-area: main;
+
+  &--inner-page {
+    padding: 0 20px;
+  }
 }
 
 .main__content {
@@ -15,7 +18,7 @@
   grid-template-rows: 1fr;
 }
 
-.main__scroll-wrap {
+.main__table-scroll-wrap {
   max-width: 100%;
   height: min-content;
   overflow: auto;

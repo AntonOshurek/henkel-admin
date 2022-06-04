@@ -7,6 +7,10 @@
   position: relative;
   z-index: 1;
 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
 
@@ -87,7 +91,7 @@
 
   @media (max-width: @tablet-width) {
     min-width:  @mobile-nav-width;
-    padding-left: 70px;
+    padding-left: 80px;
   }
 }
 
@@ -122,6 +126,9 @@
   }
 
   &--active {
+    display: flex;
+    flex-direction: column;
+
     &::before {
        display: none;
     }
