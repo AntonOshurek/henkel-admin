@@ -6,9 +6,59 @@
   grid-row-gap: 20px;
 }
 
+.offer-data {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-row-gap: 10px;
+}
+
 .offer-data__title {
   font-family: 'Jost', sans-serif;
   font-weight: 400;
   font-size: 22px;
   color: var(--standart-text-color);
 }
+
+.data-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  background-color: var(--data-list-color);
+  padding: 20px;
+  border-radius: 15px;
+
+  list-style: none;
+  box-shadow: var(--inner-shadow);
+}
+.data-list__item {
+  border-radius: 10px;
+  padding: 30px;
+  // box-shadow: var(--inner-shadow);
+
+  &:nth-child(1) {
+    background-color: #e9e7fd;
+  }
+  &:nth-child(2) {
+    background-color: #fee4cb;
+  }
+  &:nth-child(3) {
+    background-color: #ffd3e2;
+  }
+  &:nth-child(4) {
+    background-color: #c8f7dc;
+  }
+}
+.data-list__inner-list {
+  list-style: none;
+}
+.data-list__inner-item {
+  color: #1D2127;
+}
+
+//light
+//#e9e7fd
+//#fee4cb
+//#ffd3e2
+//#c8f7dc
+//#d5deff
+//#ddf6df
