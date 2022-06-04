@@ -1,11 +1,15 @@
 .crumbs {
+  width: 100%;
+}
+
+.crumbs__wrap {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   justify-content: start;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 10px;
 
   & li:hover > .crumbs__link,
   & li:focus-within > .crumbs__link {
@@ -13,6 +17,7 @@
     color: var(--main-color);
   }
 }
+
 .crumbs__item {
   position: relative;
 
@@ -29,7 +34,7 @@
     content: '>';
   }
 
-  @media (any-hover: hover) {
+  @media (min-width: @tablet-width) {
     &:hover .crumbs__dropdown,
     &:focus-within .crumbs__dropdown {
       opacity: 1;
@@ -58,7 +63,7 @@
       border-right: 4px solid transparent;
     }
 
-    @media (any-hover: none) {
+    @media (max-width: @tablet-width) {
       padding-right: 0;
       &:after {
         display: none;
