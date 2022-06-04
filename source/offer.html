@@ -39,6 +39,7 @@
 </head>
 <body class="body">
   <header class="header">
+    <h1 class="visually-hidden">Страница предложения</h1>
     <div class="header__wrap container">
       <button class="header__menu-btn neumorphic-button" type="button"></button>
       <div class="header__welcome">
@@ -46,7 +47,7 @@
         <h2 class="header__name-title">Anton Ashurek</h2>
       </div>
       <label class="header__search">
-        <input class="header__search-input neumorphic-search" type="text" placeholder="поиск">
+        <input class="header__search-input neumorphic-search" aria-label="поиск по данным на странице" type="text" placeholder="поиск">
       </label>
       <div class="header__controls">
         <fieldset class="theme-switcher neumorphic-button">
@@ -152,8 +153,13 @@
             предложение UFX/54894/2022
           </li>
         </ol>
-        <section>
-          <h2>Информация о предложении UFX/54894/2022</h2>
+        <section class="offer-data">
+          <h2 class="offer-data__title">Информация о предложении UFX/54894/2022</h2>
+          <ul>
+            <li>
+              
+            </li>
+          </ul>
         </section>
       </div>
   </main>
