@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const FIRST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.length - 1];
+const screenWidth = window.screen.width;
 let currentNavigationStatus = null;
 let lastFocusInPage = null;
 _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
@@ -37,6 +38,7 @@ function openNavigation() {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.add('header--open-menu');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.removeAttribute('tabindex'));
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0].focus();
+  screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.add('body--scrolloff') : null;
   document.addEventListener('keydown', onEscKeydown);
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener('keydown', menuFocus);
   currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN;
@@ -48,6 +50,7 @@ function closeNavigation() {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.remove('open');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.remove('header--open-menu');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
+  screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.remove('body--scrolloff') : null;
   document.removeEventListener('keydown', onEscKeydown);
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.removeEventListener('keydown', menuFocus);
   currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE;
