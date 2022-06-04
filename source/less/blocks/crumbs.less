@@ -29,7 +29,7 @@
     content: '>';
   }
 
-  @media (any-hover: hover) {
+  @media (min-width: @tablet-width) {
     &:hover .crumbs__dropdown,
     &:focus-within .crumbs__dropdown {
       opacity: 1;
@@ -58,7 +58,7 @@
       border-right: 4px solid transparent;
     }
 
-    @media (any-hover: none) {
+    @media (max-width: @tablet-width) {
       padding-right: 0;
       &:after {
         display: none;
