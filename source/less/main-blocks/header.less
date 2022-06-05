@@ -12,7 +12,7 @@
     @media (max-width: @tablet-width) {
       & .header__menu-btn {
         position: absolute;
-        top: 20px;
+        top: 10px;
         left: 20px;
         z-index: 2;
         transition: all 1s ease-in-out;
@@ -26,12 +26,9 @@
 
 .header__wrap {
   width: 100%;
-  height: 100%;
-
   display: grid;
   grid-template-rows: min-content min-content;
   grid-template-columns: min-content 1fr min-content min-content;
-
   grid-template-areas:
   "btn hello controls controls"
   "search search search search"
@@ -54,17 +51,20 @@
 
   &--inner-page {
     grid-template-rows: min-content;
+    grid-template-columns: 1fr min-content;
     grid-template-areas:
-    "btn hello controls controls"
+    "btn controls controls"
     ;
 
     @media (max-width: @tablet-width) {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: 1fr min-content;
+      grid-template-rows: 1fr;
       grid-template-areas:
       "btn controls"
-      "hello controls"
       ;
+    }
+
+    & .header__controls {
+      flex-direction: row;
     }
   }
 }
