@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  height: min-content;
   padding: 10px 20px;
   grid-area: header;
 
@@ -49,6 +50,22 @@
     "search search"
     ;
     grid-gap: 10px;
+  }
+
+  &--inner-page {
+    grid-template-rows: min-content;
+    grid-template-areas:
+    "btn hello controls controls"
+    ;
+  }
+
+  @media (max-width: @tablet-width) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr min-content;
+    grid-template-areas:
+    "btn controls"
+    "hello controls"
+    ;
   }
 }
 
