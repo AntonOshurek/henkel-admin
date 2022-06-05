@@ -57,15 +57,15 @@
     grid-template-areas:
     "btn hello controls controls"
     ;
-  }
 
-  @media (max-width: @tablet-width) {
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: 1fr min-content;
-    grid-template-areas:
-    "btn controls"
-    "hello controls"
-    ;
+    @media (max-width: @tablet-width) {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr min-content;
+      grid-template-areas:
+      "btn controls"
+      "hello controls"
+      ;
+    }
   }
 }
 
