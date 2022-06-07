@@ -2,7 +2,8 @@
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-row-gap: 10px;
-  padding: 10px 10px;
+  padding: 10px 10px 0 10px;
+  height: 100%;
   overflow: auto;
 
   box-shadow: var(--inner-shadow);
@@ -17,15 +18,12 @@
 }
 
 .inner-data__list {
-  max-width: 100%;
-  max-height: 100%;
-  overflow: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   border-radius: 15px;
   list-style: none;
-
+  overflow: auto;
 
   @media (max-width: @tablet-width) {
     grid-template-columns: 1fr;

@@ -1,22 +1,15 @@
 .header {
-  width: 100%;
-  height: min-content;
-  padding: 10px 20px;
+  padding: @header-top-padding @standart-side-padding;
   grid-area: header;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &--open-menu {
     @media (max-width: @tablet-width) {
       & .header__menu-btn {
         position: absolute;
-        top: 10px;
-        left: 20px;
-        z-index: 2;
+        top: @header-top-padding;
+        left: @standart-side-padding;
+        z-index: 3;
         transition: all 1s ease-in-out;
-
         animation-duration: 1s;
         animation-name: show-mobile-btn;
       }
@@ -30,38 +23,29 @@
   grid-template-rows: min-content min-content;
   grid-template-columns: min-content 1fr min-content min-content;
   grid-template-areas:
-  "btn hello controls controls"
-  "search search search search"
+    "btn hello controls controls"
+    "search search search search"
   ;
-
-  grid-column-gap: 20px;
-  grid-row-gap: 40px;
+  grid-gap: 20px;
   align-items: center;
 
   @media (max-width: @tablet-width) {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr min-content;
     grid-template-areas:
-    "btn controls"
-    "hello controls"
-    "search search"
+      "btn controls"
+      "hello controls"
+      "search search"
     ;
     grid-gap: 10px;
   }
 
   &--inner-page {
-    grid-template-rows: min-content;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr min-content;
     grid-template-areas:
-    "btn controls controls"
+    "btn controls"
     ;
-
-    @media (max-width: @tablet-width) {
-      grid-template-rows: 1fr;
-      grid-template-areas:
-      "btn controls"
-      ;
-    }
 
     & .header__controls {
       flex-direction: row;
@@ -70,9 +54,8 @@
 }
 
 .header__menu-btn {
-  width: 50px;
-  height: 50px;
-  justify-self: start;
+  width: @header-menu-btn-size;
+  height: @header-menu-btn-size;
   grid-area: btn;
 
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 297 297' style='enable-background:new 0 0 297 297' xml:space='preserve'%3E%3Cpath d='M280.214 39.211H16.786C7.531 39.211 0 46.742 0 55.997v24.335c0 9.256 7.531 16.787 16.786 16.787h263.428c9.255 0 16.786-7.531 16.786-16.787V55.997c0-9.255-7.531-16.786-16.786-16.786zM280.214 119.546H16.786C7.531 119.546 0 127.077 0 136.332v24.336c0 9.255 7.531 16.786 16.786 16.786h263.428c9.255 0 16.786-7.531 16.786-16.786v-24.336c0-9.255-7.531-16.786-16.786-16.786zM280.214 199.881H16.786C7.531 199.881 0 207.411 0 216.668v24.335c0 9.255 7.531 16.786 16.786 16.786h263.428c9.255 0 16.786-7.531 16.786-16.786v-24.335c0-9.257-7.531-16.787-16.786-16.787z' fill='%23f73859'/%3E%3C/svg%3E");
@@ -91,19 +74,19 @@
 }
 
 .header__welcome-text {
+  font-family: 'Jost', sans-serif;
   color: var(--standart-text-color);
   font-size: 16px;
   font-weight: 300;
   line-height: 90%;
-  font-family: 'Jost', sans-serif;
 }
 
 .header__name-title {
+  font-family: 'Jost', sans-serif;
   color: var(--standart-text-color);
   font-size: 18px;
   font-weight: 500;
   line-height: 90%;
-  font-family: 'Jost', sans-serif;
 }
 
 .header__search {
@@ -172,7 +155,6 @@
   grid-area: controls;
 
   @media (max-width: @tablet-width) {
-    justify-self: end;
     justify-content: end;
     flex-direction: column-reverse;
   }
@@ -181,7 +163,6 @@
 .header__exit-button {
   height: 40px;
   width: 40px;
-  justify-self: center;
 
   background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='96.943' height='96.943' style='enable-background:new 0 0 96.943 96.943' xml:space='preserve'%3E%3Cpath d='M61.168 83.92H11.364V13.025H61.17a2 2 0 0 0 2-2V3.66a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v89.623a2 2 0 0 0 2 2h59.168a2 2 0 0 0 2-2V85.92c0-1.106-.894-2-2-2z' fill='%23bec8e4'/%3E%3Cpath d='m96.355 47.058-26.922-26.92c-.75-.751-2.078-.75-2.828 0l-6.387 6.388a2 2 0 0 0 0 2.828l12.16 12.162H19.737a2 2 0 0 0-2 2v9.912a2 2 0 0 0 2 2h52.644L60.221 67.59a2 2 0 0 0 0 2.828l6.387 6.389a2.002 2.002 0 0 0 2.828 0l26.922-26.92c.375-.375.586-.885.586-1.414a2.007 2.007 0 0 0-.589-1.415z' fill='%23bec8e4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;

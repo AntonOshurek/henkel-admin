@@ -28,7 +28,7 @@
     }
   </script>
 
-  <title>Henkel Admin</title>
+  <title>предложение UFX/54894/2022</title>
 
   <!--dark and light theme styles-->
   <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
@@ -37,7 +37,7 @@
 
   <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
 </head>
-<body class="body">
+<body class="body body--no-footer">
   <header class="header">
     <h1 class="visually-hidden">Все предложения</h1>
     <div class="header__wrap header__wrap--inner-page container">
@@ -54,7 +54,7 @@
       </div>
     </div>
   </header>
-  <nav class="navigation">
+  <nav class="navigation custom-scroll">
     <div class="navigation__Wrap">
       <img class="navigation__logo" src="./img/logo//henkel-logo.png" width="300" height="180" alt="">
       <ul class="navigation__list">
@@ -116,39 +116,39 @@
       <ol class="crumbs">
         <div class='crumbs__wrap'>
           <li class="crumbs__item">
-            <a class="crumbs__link crumbs__link--dropdown-arrow" href="">Главная</a>
+            <a class="crumbs__link crumbs__text crumbs__link--dropdown-arrow" href="">Главная</a>
             <ul class="crumbs__dropdown">
               <li>
-                <a class="crumbs__droped-link" href="">Предложения</a>
+                <a class="crumbs__droped-link crumbs__text" href="">Предложения</a>
               </li>
               <li>
-                <a class="crumbs__droped-link" href="">Инвестиции</a>
+                <a class="crumbs__droped-link crumbs__text" href="">Инвестиции</a>
               </li>
               <li>
-                <a class="crumbs__droped-link" href="">Каталог продуктов</a>
+                <a class="crumbs__droped-link crumbs__text" href="">Каталог продуктов</a>
               </li>
             </ul>
           </li>
           <li class="crumbs__item">
-            <a class="crumbs__link crumbs__link--dropdown-arrow" href="">Предложения</a>
+            <a class="crumbs__link crumbs__text crumbs__link--dropdown-arrow" href="">Предложения</a>
             <ul class="crumbs__dropdown">
               <li>
-                <a class="crumbs__droped-link" href="">Все предложения</a>
+                <a class="crumbs__droped-link crumbs__text" href="">Все предложения</a>
               </li>
               <li>
-                <a class="crumbs__droped-link" href="">Предложения по дате</a>
+                <a class="crumbs__droped-link crumbs__text" href="">Предложения по дате</a>
               </li>
             </ul>
           </li>
           <li class="crumbs__item">
-            <a class="crumbs__link" href="">Все предложения</a>
+            <a class="crumbs__link crumbs__text" href="">Все предложения</a>
           </li>
-          <li class="crumbs__item crumbs__item--current">
-            предложение UFX/54894/2022
+          <li class="crumbs__item crumbs__text">
+            Предложение UFX/54894/2022
           </li>
         </div>
       </ol>
-      <section class="inner-data">
+      <section class="inner-data custom-scroll">
         <h2 class="inner-data__title">Информация о предложении UFX/54894/2022</h2>
         <ul class="inner-data__list">
           <li class="inner-data__item">
@@ -288,43 +288,35 @@
       </section>
     </div>
   </main>
-  <footer class="footer footer--no-icons">
-    <div class="footer__wrap footer__wrap--no-icons container ">
-      <p class="footer__suport footer__suport--no-icons">
-        Если возник вопрос или что-то не получается, пишите.
-        <a class="footer__sup-link" href="mailto:support@unicorn.com.pl">support@unicorn.com.pl</a>
-      </p>
-    </div>
-  </footer>
 
-    <!-- preloader--load -->
-    <div class="preloader preloader--load">
-      <div class="preloader__wrap">
-        <div class="preloader__load">
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-        </div>
-        <div class="status">Loading
-          <span class="status__dot">.</span>
-          <span class="status__dot">.</span>
-          <span class="status__dot">.</span>
-        </div>
+  <!-- preloader--load -->
+  <div class="preloader preloader--load">
+    <div class="preloader__wrap">
+      <div class="preloader__load">
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+      </div>
+      <div class="status">Loading
+        <span class="status__dot">.</span>
+        <span class="status__dot">.</span>
+        <span class="status__dot">.</span>
       </div>
     </div>
+  </div>
 
-    <script>
-      window.addEventListener('beforeunload', event => {
-        document.body.classList.add('body--redirect');
-      });
+  <script>
+    window.addEventListener('beforeunload', event => {
+      document.body.classList.add('body--redirect');
+    });
 
-      window.onload = function () {
-        window.setTimeout(function () {
-          document.querySelector('.preloader').classList.remove('preloader--load');
-        }, 700);
-      }
-    </script>
+    window.onload = function () {
+      window.setTimeout(function () {
+        document.querySelector('.preloader').classList.remove('preloader--load');
+      }, 700);
+    }
+  </script>
 
   <script src="js/bundle.js"></script>
 </body>

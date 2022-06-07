@@ -5,22 +5,11 @@
   grid-area: nav;
   overflow-y: auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-
-  -ms-overflow-style: none; /* IE 11 */
-  scrollbar-width: none; /* Firefox 64 */
-
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-
-  &::-moz-scrollbar {
-    width: 0px;
-  }
 
   @media (max-width: @tablet-width) {
     position: absolute;
@@ -85,13 +74,12 @@
   align-items: start;
   gap: 10px;
   padding-left: @nav-elem-padding;
-  padding-bottom: 20px;
 
   list-style: none;
 
   @media (max-width: @tablet-width) {
     min-width:  @mobile-nav-width;
-    padding-left: 80px;
+    padding-left: calc(@standart-side-padding + @header-menu-btn-size + @nav-elem-padding);
   }
 }
 
@@ -110,8 +98,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100%);
-    height: calc(100%);
+    width: 100%;
+    height: 100%;
     background-color: transparent;
     border-radius: 8px;
     transition: @standart-hover-animation;
@@ -130,7 +118,7 @@
     flex-direction: column;
 
     &::before {
-       display: none;
+      display: none;
     }
 
     & > .navigation__link {
@@ -141,21 +129,6 @@
         transition: @standart-hover-animation;
       }
     }
-  }
-}
-//only for opened inner pages!!!
-.navigation__inner-page {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  width: 100%;
-  color: var(--sub-text-color);
-
-  &::before {
-    padding: 5px 5px 5px 5px;
-    color:var(--main-color);
-    font-weight: 400;
-    content: '>';
   }
 }
 
@@ -221,6 +194,22 @@
 
   &--product::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 201.607 201.607' style='enable-background:new 0 0 201.607 201.607' xml:space='preserve' fill='%23f73859'%3E%3Cpath d='M59.584 4.305 0 51.099v146.203h146.189v-.351l55.311-49.184V4.491l.107-.186H59.584zm1.951 5.501h57.068L73.252 51.099H10.529L61.535 9.806zm79.16 181.999H5.504V56.61h135.191v135.195zm1.679-140.706H81.43l45.355-41.293h60.669l-45.08 41.293zm53.625 94.192-49.807 44.285V55.064l49.807-45.623v135.85z' fill='%23f73859'/%3E%3Cpath d='M49.553 75.882h49.088v5.501H49.553z' fill='%23f73859'/%3E%3C/svg%3E");
+  }
+}
+
+//only for opened inner pages!!!
+.navigation__inner-page {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  color: var(--sub-text-color);
+
+  &::before {
+    padding: 5px 5px 5px 5px;
+    color:var(--main-color);
+    font-weight: 400;
+    content: '>';
   }
 }
 
