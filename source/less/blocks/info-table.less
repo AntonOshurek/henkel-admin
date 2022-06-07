@@ -1,13 +1,17 @@
 .info-table {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content 1fr;
-  grid-row-gap: 15px;
+  grid-template-rows: min-content min-content 1fr;
+  grid-row-gap: 10px;
   height: 100%;
 }
 
-.info-table__title {
+.info-table__title-wrap {
   padding: 0 @standart-side-padding;
+}
+
+.info-table__title {
+  width: 100%;
   font-size: 22px;
   font-weight: 500;
   color: var(--sub-text-color);

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Open+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <!--
+  font-family: 'Jost', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  -->
+
+  <meta name='color-scheme' content='light dark'>
+  <meta name="theme-color" media='(prefers-color-scheme: light)' content="#c7cbcc">
+  <meta name="theme-color" media='(prefers-color-scheme: dark)' content="#273a43">
+
+  <script>
+    if(matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+      document.documentElement.style.display = 'none';
+      document.head.insertAdjacentHTML(
+        'beforeend',
+        '<link rel="stylesheet" href="light.css" onload="document.documentElement.style.display=\'\'">'
+      )
+    }
+  </script>
+
+  <title>Все предложения</title>
+
+  <!--dark and light theme styles-->
+  <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
+</head>
+<body class="body">
+  <header class="header">
+    <h1 class="visually-hidden">Все предложения</h1>
+    <div class="header__wrap header__wrap--no-welcome container">
+      <button class="header__menu-btn neumorphic-button" type="button"></button>
+      <label class="header__search">
+        <input class="header__search-input neumorphic-search" aria-label="поиск по данным на странице" type="text" placeholder="поиск">
+      </label>
+      <div class="header__controls">
+        <fieldset class="theme-switcher neumorphic-button">
+          <legend class="visually-hidden">Scheme</legend>
+          <input class="theme-switcher__radio theme-switcher__radio--light" type="radio" name="color-scheme" value="light" aria-label="light">
+          <input class="theme-switcher__radio theme-switcher__radio--auto" type="radio" name="color-scheme" value="auto" aria-label="auto tcheme" checked>
+          <input class="theme-switcher__radio theme-switcher__radio--dark" type="radio" name="color-scheme" value="dark" aria-label="dark">
+          <div class="theme-switcher__status"></div>
+        </fieldset>
+        <button class="header__exit-button neumorphic-button" type="button"></button>
+      </div>
+    </div>
+  </header>
+  <nav class="navigation">
+    <div class="navigation__Wrap">
+      <img class="navigation__logo" src="./img/logo//henkel-logo.png" width="300" height="180" alt="">
+      <ul class="navigation__list">
+        <h2 class="navigation__title">Предложения</h2>
+        <li class="navigation__item navigation__item--active">
+          <a class="navigation__link navigation__link--offers-all" href="#">Все предложения</a>
+        </li>
+        <li class="navigation__item">
+          <a class="navigation__link navigation__link--offers-date" href="#">Предложения по дате</a>
+        </li>
+      </ul>
+      <ul class="navigation__list">
+        <h2 class="navigation__title">Инвестиции</h2>
+        <li class="navigation__item">
+          <a class="navigation__link navigation__link--invest-all" href="#">Все инвестиции</a>
+        </li>
+        <li class="navigation__item">
+          <a class="navigation__link navigation__link--invest-payer" href="#">По плательщику</a>
+        </li>
+        <li class="navigation__item">
+          <a class="navigation__link navigation__link--invest-date" href="#">По дате</a>
+        </li>
+      </ul>
+      <ul class="navigation__list">
+        <h2 class="navigation__title">Каталог продуктов</h2>
+        <li class="navigation__item">
+          <a class="navigation__link navigation__link--product" href="#">Все продукты</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="main">
+    <section class="info-table">
+      <ol class="crumbs ">
+        <div class='crumbs__wrap container'>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__text" href="index.html">Главная</a>
+          </li>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__text crumbs__link--dropdown-arrow" href="offers-all.html">Все предложения</a>
+            <ul class="crumbs__dropdown">
+              <li>
+                <a class="crumbs__droped-link crumbs__text" href="">Предложения по дате</a>
+              </li>
+            </ul>
+          </li>
+        </div>
+      </ol>
+      <div class="info-table__title-wrap">
+        <h2 class="info-table__title container">Таблица всех предложений</h2>
+      </div>
+      <div class="info-table__wrap">
+        <table class="info-table__table">
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+              <th>Column 4</th>
+              <th>Column 5</th>
+              <th>Column 6</th>
+              <th>Column 7</th>
+              <th>Column 8</th>
+              <th>Column 9</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+            <tr>
+              <td><a href="offer.html">Cell 1</a></td>
+              <td><a href="offer.html">Cell 2</a></td>
+              <td><a href="offer.html">Cell 3</a></td>
+              <td><a href="offer.html">Cell 4</a></td>
+              <td><a href="offer.html">Cell 5</a></td>
+              <td><a href="offer.html">Cell 6</a></td>
+              <td><a href="offer.html">Cell 7</a></td>
+              <td><a href="offer.html">Cell 8</a></td>
+              <td><a href="offer.html">Cell 9</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__wrap container">
+      <p class="footer__suport">
+        Если возник вопрос или что-то не получается, пишите.
+        <a class="footer__sup-link" href="mailto:support@unicorn.com.pl">support@unicorn.com.pl</a>
+      </p>
+    </div>
+  </footer>
+
+    <!-- preloader--load -->
+    <div class="preloader preloader--load">
+      <div class="preloader__wrap">
+        <div class="preloader__load">
+          <div class="preloader__square"></div>
+          <div class="preloader__square"></div>
+          <div class="preloader__square"></div>
+          <div class="preloader__square"></div>
+        </div>
+        <div class="status">Loading
+          <span class="status__dot">.</span>
+          <span class="status__dot">.</span>
+          <span class="status__dot">.</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('beforeunload', event => {
+        document.body.classList.add('body--redirect');
+      });
+
+      window.onload = function () {
+        window.setTimeout(function () {
+          document.querySelector('.preloader').classList.remove('preloader--load');
+        }, 700);
+      }
+    </script>
+
+  <script src="js/bundle.js"></script>
+</body>
+</html>
