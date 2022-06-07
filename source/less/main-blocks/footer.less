@@ -12,6 +12,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--contacts {
+    justify-content: space-between;
+
+    & > .footer__suport {
+      align-items: flex-end;
+    }
+
+    @media (max-width: @tablet-width) {
+      flex-direction: column;
+      gap: 10px;
+
+      & > .footer__suport {
+        align-items: center;
+      }
+    }
+  }
 }
 
 .footer__suport {
