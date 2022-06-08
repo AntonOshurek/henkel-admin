@@ -99,6 +99,7 @@ exports.createWebp = createWebp;
 const copy = (done) => {
   gulp.src([
     "source/*.ico",
+    "source/.htaccess",
     "source/img/**/*.svg",
     "source/img/**/*.webp",
     "!source/img/icons/*.svg",
@@ -144,8 +145,12 @@ const clean = () => {
 };
 exports.clean = clean;
 
+const fs = require('fs');
+const path = require('path');
+const content_404 = fs.readFileSync(path.join('source/', '404.html'));
 // Server
 const server = (done) => {
+
   sync.init({
     server: {
       baseDir: 'build'
@@ -153,7 +158,14 @@ const server = (done) => {
     cors: true,
     notify: false,
     ui: false,
-  });
+  },
+  (err, bs) => {
+    bs.addMiddleware("*", (req, res) => {
+        // Provides the 404 content without redirect.
+        res.write(content_404);
+        res.end();
+    })}
+  );
   done();
 }
 exports.server = server;
@@ -170,6 +182,7 @@ const watcher = () => {
   gulp.watch("source/*.html", gulp.series(html, reload));
   gulp.watch("source/light.less", gulp.series(copyLightThemeStyles, reload));
   gulp.watch("source/dark.less", gulp.series(copyDarkThemeStyles, reload));
+  gulp.watch("source/.htaccess", gulp.series(copy, reload));
 }
 
 // Build
