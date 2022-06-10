@@ -28,7 +28,7 @@
     }
   </script>
 
-  <title>Henkel Admin</title>
+  <title>данные клиента</title>
 
   <!--dark and light theme styles-->
   <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
@@ -90,20 +90,40 @@
       </ul>
       <ul class="navigation__list">
         <h2 class="navigation__title">Система</h2>
-        <li class="navigation__item">
-          <a class="navigation__link navigation__link--product" href="client.html">Мои данные</a>
+        <li class="navigation__item navigation__item--current">
+          <a class="navigation__link navigation__link--product">Мои данные</a>
         </li>
       </ul>
 
     </div>
   </nav>
 
-  <main class="main main--index">
-    <ul class="">
-      <li>
-        <a href="#"></a>
-      </li>
-    </ul>
+  <main class="main">
+    <div class="client">
+
+      <ol class="crumbs ">
+        <div class='crumbs__wrap container'>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__text" href="index.html">Главная</a>
+          </li>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__text crumbs__link--dropdown-arrow">Система</a>
+            <ul class="crumbs__dropdown">
+              <li>
+                <a class="crumbs__droped-link crumbs__text" href="">Мои данные</a>
+              </li>
+              <li>
+                <a class="crumbs__droped-link crumbs__text" href="">техническая поддержка</a>
+              </li>
+            </ul>
+          </li>
+          <li class="crumbs__item crumbs__text">
+            Мои данные
+          </li>
+        </div>
+      </ol>
+
+    </div>
   </main>
 
   <footer class="footer">

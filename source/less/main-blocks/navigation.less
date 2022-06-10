@@ -130,6 +130,17 @@
       }
     }
   }
+
+  &--current {
+    pointer-events: none;
+    &::before {
+      display: none;
+    }
+
+    & > .navigation__link {
+      color: var(--main-color);
+    }
+  }
 }
 
 .navigation__link {
