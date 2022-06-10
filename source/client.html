@@ -28,7 +28,7 @@
     }
   </script>
 
-  <title>Henkel Admin</title>
+  <title>Персональные данные</title>
 
   <!--dark and light theme styles-->
   <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
@@ -37,7 +37,7 @@
 
   <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
 </head>
-<body class="body">
+<body class="body body--no-footer">
   <header class="header">
     <h1 class="visually-hidden">Все предложения</h1>
     <div class="header__wrap header__wrap--no-search container">
@@ -97,7 +97,7 @@
       <li>
         <ul class="navigation__list">
           <h2 class="navigation__title">Система</h2>
-          <li class="navigation__item">
+          <li class="navigation__item navigation__item--current">
             <a class="navigation__link navigation__link--product">Мои данные</a>
           </li>
         </ul>
@@ -105,39 +105,33 @@
     </ul>
   </nav>
 
-  <main class="main main--index">
-    <ul class="">
-      <li>
-        <a href="#"></a>
-      </li>
-    </ul>
-  </main>
+  <main class="main">
+    <div class="client">
 
-  <footer class="footer">
-    <div class="footer__wrap footer__wrap--contacts container">
-      <ul class="contacts-list">
-        <li class="contacts-list__item">
-          <a class="contacts-list__link contacts-list__link--instagram" href="#">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </li>
-        <li class="contacts-list__item contacts-list__link--twitter">
-          <a class="contacts-list__link" href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li class="contacts-list__item contacts-list__link--facebook">
-          <a class="contacts-list__link" href="#">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="footer__suport">
-        Если возник вопрос или что-то не получается, пишите.
-        <a class="footer__sup-link" href="mailto:support@unicorn.com.pl">support@unicorn.com.pl</a>
-      </p>
+      <ol class="crumbs ">
+        <div class='crumbs__wrap container'>
+          <li class="crumbs__item">
+            <a class="crumbs__link crumbs__text" href="index.html">Главная</a>
+          </li>
+          <li class="crumbs__item">
+            <p class="crumbs__link crumbs__text crumbs__link--dropdown-arrow">Система</p>
+            <ul class="crumbs__dropdown">
+              <li>
+                <p class="crumbs__droped-link crumbs__text crumbs__text--active">Мои данные</p>
+              </li>
+              <li>
+                <a class="crumbs__droped-link crumbs__text" href="">техническая поддержка</a>
+              </li>
+            </ul>
+          </li>
+          <li class="crumbs__item crumbs__text crumbs__text--active">
+            Мои данные
+          </li>
+        </div>
+      </ol>
+
     </div>
-  </footer>
+  </main>
 
   <!-- preloader--load -->
   <div class="preloader preloader--load">

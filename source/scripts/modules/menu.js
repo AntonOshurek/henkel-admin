@@ -11,6 +11,11 @@ const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length
 const screenWidth = window.screen.width;
 
 let currentNavigationStatus = null;
+// if(screenWidth < 900) {
+//   currentNavigationStatus = null;
+// } else {
+//   currentNavigationStatus = navigationElement.classList.contains('navigation--open') ? NAVIGATION_STATUS.OPEN : NAVIGATION_STATUS.CLOSE;
+// }
 let lastFocusInPage = null;
 navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
@@ -23,7 +28,7 @@ function onEscKeydown(evt) {
 };
 
 function openNavigation() {
-  navigationElement.classList.add('open');
+  navigationElement.classList.add('navigation--open');
   headerElement.classList.add('header--open-menu');
   navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
   navigationLinksArray[0].focus();
@@ -37,7 +42,7 @@ function openNavigation() {
 };
 
 function closeNavigation() {
-  navigationElement.classList.remove('open');
+  navigationElement.classList.remove('navigation--open');
   headerElement.classList.remove('header--open-menu');
   navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
