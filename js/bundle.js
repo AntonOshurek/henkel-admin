@@ -19,7 +19,12 @@ __webpack_require__.r(__webpack_exports__);
 const FIRST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.length - 1];
 const screenWidth = window.screen.width;
-let currentNavigationStatus = null;
+let currentNavigationStatus = null; // if(screenWidth < 900) {
+//   currentNavigationStatus = null;
+// } else {
+//   currentNavigationStatus = navigationElement.classList.contains('navigation--open') ? NAVIGATION_STATUS.OPEN : NAVIGATION_STATUS.CLOSE;
+// }
+
 let lastFocusInPage = null;
 _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
 
@@ -34,7 +39,7 @@ function onEscKeydown(evt) {
 ;
 
 function openNavigation() {
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.add('open');
+  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.add('navigation--open');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.add('header--open-menu');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.removeAttribute('tabindex'));
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0].focus();
@@ -47,7 +52,7 @@ function openNavigation() {
 ;
 
 function closeNavigation() {
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.remove('open');
+  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.remove('navigation--open');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.remove('header--open-menu');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
   screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.remove('body--scrolloff') : null;
