@@ -11,6 +11,11 @@ const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length
 const screenWidth = window.screen.width;
 
 let currentNavigationStatus = null;
+// if(screenWidth < 900) {
+//   currentNavigationStatus = null;
+// } else {
+//   currentNavigationStatus = navigationElement.classList.contains('navigation--open') ? NAVIGATION_STATUS.OPEN : NAVIGATION_STATUS.CLOSE;
+// }
 let lastFocusInPage = null;
 navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
