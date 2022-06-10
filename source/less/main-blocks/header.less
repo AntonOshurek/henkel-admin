@@ -8,7 +8,6 @@
         position: absolute;
         top: @header-top-padding;
         left: @standart-side-padding;
-        z-index: 3;
         transition: all 1s ease-in-out;
         animation-duration: 1s;
         animation-name: show-mobile-btn;
@@ -94,6 +93,7 @@
 }
 
 .header__menu-btn {
+  z-index: @index-menu-btn;
   width: @header-menu-btn-size;
   height: @header-menu-btn-size;
   grid-area: btn;
