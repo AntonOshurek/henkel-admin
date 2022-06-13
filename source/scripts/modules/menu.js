@@ -18,7 +18,6 @@ navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    LAST_MENU_FOCUS_ELEMENT.focus();
     menuLogick();
   }
 }
@@ -26,7 +25,7 @@ function onEscKeydown(evt) {
 function openNavigation() {
   navigationElement.classList.add('navigation--open');
   headerElement.classList.add('header--open-menu');
-  navigationLinksArray.forEach((link) => link.removeAttribute('tabindex'));
+  navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '0'));
   navigationLinksArray[0].focus();
 
   screenWidth < 900 ? bodyElement.classList.add('body--scrolloff') : null;
@@ -52,7 +51,7 @@ function closeNavigation() {
 
 function menuLogick() {
   if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
-    lastFocusInPage = null
+    lastFocusInPage.focus();
     closeNavigation()
   } else {
     lastFocusInPage = document.activeElement
@@ -71,23 +70,18 @@ function menuFocus(e) {
   if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
     if ( e.shiftKey ) /* shift + tab */ {
       if (document.activeElement === FIRST_MENU_FOCUS_ELEMENT) {
-        console.log('shift tab FIRST_MENU_FOCUS_ELEMENT' )
         e.preventDefault();
         menuButtonElement.focus();
       }
       else if(document.activeElement === menuButtonElement) {
-        console.log('shift tab menuButtonElement to last')
-        console.log(LAST_MENU_FOCUS_ELEMENT)
         e.preventDefault();
         LAST_MENU_FOCUS_ELEMENT.focus();
       }
     } else /*tab*/  {
       if (document.activeElement === LAST_MENU_FOCUS_ELEMENT) {
-        console.log('tab  LAST_MENU_FOCUS_ELEMENT')
         e.preventDefault();
         menuButtonElement.focus();
       } else if(document.activeElement === menuButtonElement) {
-        console.log('tab menuButtonElement')
         e.preventDefault();
         FIRST_MENU_FOCUS_ELEMENT.focus();
       }

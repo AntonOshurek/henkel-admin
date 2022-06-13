@@ -3,7 +3,4 @@ import { menu } from './modules/menu';
 
 
 menu();
-
-
-// menu();
 tchemeControl();
