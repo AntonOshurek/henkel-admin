@@ -26,7 +26,6 @@ _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(l
 function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    LAST_MENU_FOCUS_ELEMENT.focus();
     menuLogick();
   }
 }
@@ -34,7 +33,7 @@ function onEscKeydown(evt) {
 function openNavigation() {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.add('navigation--open');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.add('header--open-menu');
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.removeAttribute('tabindex'));
+  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '0'));
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0].focus();
   screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.add('body--scrolloff') : null;
   document.addEventListener('keydown', onEscKeydown);
@@ -56,7 +55,7 @@ function closeNavigation() {
 
 function menuLogick() {
   if (currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN) {
-    lastFocusInPage = null;
+    lastFocusInPage.focus();
     closeNavigation();
   } else {
     lastFocusInPage = document.activeElement;
@@ -77,12 +76,9 @@ function menuFocus(e) {
       /* shift + tab */
       {
         if (document.activeElement === FIRST_MENU_FOCUS_ELEMENT) {
-          console.log('shift tab FIRST_MENU_FOCUS_ELEMENT');
           e.preventDefault();
           _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.focus();
         } else if (document.activeElement === _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement) {
-          console.log('shift tab menuButtonElement to last');
-          console.log(LAST_MENU_FOCUS_ELEMENT);
           e.preventDefault();
           LAST_MENU_FOCUS_ELEMENT.focus();
         }
@@ -90,11 +86,9 @@ function menuFocus(e) {
       /*tab*/
       {
         if (document.activeElement === LAST_MENU_FOCUS_ELEMENT) {
-          console.log('tab  LAST_MENU_FOCUS_ELEMENT');
           e.preventDefault();
           _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.focus();
         } else if (document.activeElement === _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement) {
-          console.log('tab menuButtonElement');
           e.preventDefault();
           FIRST_MENU_FOCUS_ELEMENT.focus();
         }
@@ -383,8 +377,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./source/scripts/modules/menu.js");
 
 
-(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)(); // menu();
-
+(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();
 (0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
 }();
 /******/ })()
