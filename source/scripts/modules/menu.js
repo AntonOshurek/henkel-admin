@@ -10,20 +10,16 @@ const LAST_MENU_FOCUS_ELEMENT = navigationLinksArray[navigationLinksArray.length
 
 const screenWidth = window.screen.width;
 
-let currentNavigationStatus = null;
-// if(screenWidth < 900) {
-//   currentNavigationStatus = null;
-// } else {
-//   currentNavigationStatus = navigationElement.classList.contains('navigation--open') ? NAVIGATION_STATUS.OPEN : NAVIGATION_STATUS.CLOSE;
-// }
+let currentNavigationStatus = NAVIGATION_STATUS.CLOSE;
 let lastFocusInPage = null;
+
 navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '-1'));
 
 function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     lastFocusInPage.focus();
-    closeNavigation();
+    menuLogick();
   }
 };
 
@@ -54,16 +50,20 @@ function closeNavigation() {
   currentNavigationStatus = NAVIGATION_STATUS.CLOSE;
 }
 
+function menuLogick() {
+  if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
+    lastFocusInPage = null
+    closeNavigation()
+  } else {
+    lastFocusInPage = document.activeElement
+    openNavigation()
+  }
+}
+
 const menu = () => {
   menuButtonElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
-      lastFocusInPage = null
-      closeNavigation()
-    } else {
-      lastFocusInPage = document.activeElement
-      openNavigation()
-    }
+    menuLogick();
   });
 };
 
@@ -131,12 +131,11 @@ function menuFocus(e) {
     if(Math.abs(d.x) > Math.abs(d.y)) { //Проверяем, движение по какой оси было длиннее
       if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
         if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          console.log('left')
-
+          menuLogick();
         }
         else { //Иначе он двигал им слева направо
           console.log('right')
-
+          menuLogick();
         }
       }
     }
