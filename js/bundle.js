@@ -19,24 +19,17 @@ __webpack_require__.r(__webpack_exports__);
 const FIRST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.length - 1];
 const screenWidth = window.screen.width;
-let currentNavigationStatus = null; // if(screenWidth < 900) {
-//   currentNavigationStatus = null;
-// } else {
-//   currentNavigationStatus = navigationElement.classList.contains('navigation--open') ? NAVIGATION_STATUS.OPEN : NAVIGATION_STATUS.CLOSE;
-// }
-
+let currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE;
 let lastFocusInPage = null;
 _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
 
 function onEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    lastFocusInPage.focus();
-    closeNavigation();
+    LAST_MENU_FOCUS_ELEMENT.focus();
+    menuLogick();
   }
 }
-
-;
 
 function openNavigation() {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.add('navigation--open');
@@ -61,17 +54,20 @@ function closeNavigation() {
   currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE;
 }
 
+function menuLogick() {
+  if (currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN) {
+    lastFocusInPage = null;
+    closeNavigation();
+  } else {
+    lastFocusInPage = document.activeElement;
+    openNavigation();
+  }
+}
+
 const menu = () => {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.addEventListener('click', evt => {
     evt.preventDefault();
-
-    if (currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN) {
-      lastFocusInPage = null;
-      closeNavigation();
-    } else {
-      lastFocusInPage = document.activeElement;
-      openNavigation();
-    }
+    menuLogick();
   });
 };
 
@@ -81,9 +77,12 @@ function menuFocus(e) {
       /* shift + tab */
       {
         if (document.activeElement === FIRST_MENU_FOCUS_ELEMENT) {
+          console.log('shift tab FIRST_MENU_FOCUS_ELEMENT');
           e.preventDefault();
           _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.focus();
         } else if (document.activeElement === _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement) {
+          console.log('shift tab menuButtonElement to last');
+          console.log(LAST_MENU_FOCUS_ELEMENT);
           e.preventDefault();
           LAST_MENU_FOCUS_ELEMENT.focus();
         }
@@ -91,13 +90,90 @@ function menuFocus(e) {
       /*tab*/
       {
         if (document.activeElement === LAST_MENU_FOCUS_ELEMENT) {
+          console.log('tab  LAST_MENU_FOCUS_ELEMENT');
           e.preventDefault();
           _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.focus();
         } else if (document.activeElement === _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement) {
+          console.log('tab menuButtonElement');
           e.preventDefault();
           FIRST_MENU_FOCUS_ELEMENT.focus();
         }
       }
+  }
+} // swips
+
+
+let touchStart = null; //Точка начала касания
+
+let touchPosition = null; //Текущая позиция
+//Чувствительность — количество пикселей, после которого жест будет считаться свайпом
+
+const sensitivity = 200;
+_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener("touchstart", function (e) {
+  TouchStart(e);
+}); //Начало касания
+
+_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener("touchmove", function (e) {
+  TouchMove(e);
+}); //Движение пальцем по экрану
+//Пользователь отпустил экран
+
+_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener("touchend", function (e) {
+  TouchEnd(e);
+}); //Отмена касания
+
+_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener("touchcancel", function (e) {
+  TouchEnd(e);
+});
+
+function TouchStart(e) {
+  //Получаем текущую позицию касания
+  touchStart = {
+    x: e.changedTouches[0].clientX,
+    y: e.changedTouches[0].clientY
+  };
+  touchPosition = {
+    x: touchStart.x,
+    y: touchStart.y
+  };
+}
+
+function TouchMove(e) {
+  //Получаем новую позицию
+  touchPosition = {
+    x: e.changedTouches[0].clientX,
+    y: e.changedTouches[0].clientY
+  };
+}
+
+function TouchEnd(e) {
+  CheckAction(); //Определяем, какой жест совершил пользователь
+  //Очищаем позиции
+
+  touchStart = null;
+  touchPosition = null;
+}
+
+function CheckAction() {
+  let d = //Получаем расстояния от начальной до конечной точек по обеим осям
+  {
+    x: touchStart.x - touchPosition.x,
+    y: touchStart.y - touchPosition.y
+  };
+
+  if (Math.abs(d.x) > Math.abs(d.y)) {
+    //Проверяем, движение по какой оси было длиннее
+    if (Math.abs(d.x) > sensitivity) {
+      //Проверяем, было ли движение достаточно длинным
+      if (d.x > 0) {
+        //Если значение больше нуля, значит пользователь двигал пальцем справа налево
+        menuLogick();
+      } else {
+        //Иначе он двигал им слева направо
+        console.log('right');
+        menuLogick();
+      }
+    }
   }
 }
 
@@ -307,10 +383,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./source/scripts/modules/menu.js");
 
 
-(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();
-(0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)(); // document.addEventListener('keydown', (evt) => {
-//   console.log(document.activeElement)
-// })
+(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)(); // menu();
+
+(0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
 }();
 /******/ })()
 ;
