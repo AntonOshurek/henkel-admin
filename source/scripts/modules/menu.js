@@ -26,6 +26,7 @@ function openNavigation() {
   navigationElement.classList.add('navigation--open');
   headerElement.classList.add('header--open-menu');
   navigationLinksArray.forEach((link) => link.setAttribute('tabindex', '0'));
+  lastFocusInPage = document.activeElement;
   navigationLinksArray[0].focus();
 
   screenWidth < 900 ? bodyElement.classList.add('body--scrolloff') : null;
@@ -46,15 +47,14 @@ function closeNavigation() {
   document.removeEventListener('keydown', onEscKeydown);
   bodyElement.removeEventListener('keydown', menuFocus);
 
+  lastFocusInPage.focus();
   currentNavigationStatus = NAVIGATION_STATUS.CLOSE;
 }
 
 function menuLogick() {
   if(currentNavigationStatus === NAVIGATION_STATUS.OPEN) {
-    lastFocusInPage.focus();
     closeNavigation()
   } else {
-    lastFocusInPage = document.activeElement
     openNavigation()
   }
 }
@@ -93,7 +93,8 @@ function menuFocus(e) {
   let touchStart = null; //Точка начала касания
   let touchPosition = null; //Текущая позиция
   //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
-  const sensitivity = 200;
+  const sensitivity = 100;
+  const leftSideMaxarea = 40; // зона в 40px от левого края - там где будут считаться свайпы для открытия
 
   bodyElement.addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
   bodyElement.addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
@@ -121,23 +122,24 @@ function menuFocus(e) {
   }
 
   function CheckAction()  {
+
     let d = //Получаем расстояния от начальной до конечной точек по обеим осям
     {
     x: touchStart.x - touchPosition.x,
     y: touchStart.y - touchPosition.y
     };
 
-    if(Math.abs(d.x) > Math.abs(d.y)) { //Проверяем, движение по какой оси было длиннее
-      if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
-        if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-          menuLogick();
-        }
-        else { //Иначе он двигал им слева направо
-          console.log('right')
-          menuLogick();
+    if(Math.abs(d.x) > sensitivity) { //Проверяем, было ли движение достаточно длинным
+      if(d.x > 0) { //Если значение больше нуля, значит пользователь двигал пальцем справа налево
+        currentNavigationStatus === NAVIGATION_STATUS.OPEN ? closeNavigation() : null;
+      }
+      else { //Иначе он двигал им слева направо
+        if(touchStart.x < leftSideMaxarea ) {
+          currentNavigationStatus === NAVIGATION_STATUS.CLOSE ? openNavigation() : null;
         }
       }
     }
+
   }
 
 export { menu };
