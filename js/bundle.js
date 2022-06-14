@@ -10,7 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "menu": function() { return /* binding */ menu; }
+/* harmony export */   "menuInit": function() { return /* binding */ menuInit; }
 /* harmony export */ });
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/constants */ "./source/scripts/utils/constants.js");
 /* harmony import */ var _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/node-elements */ "./source/scripts/utils/node-elements.js");
@@ -19,14 +19,24 @@ __webpack_require__.r(__webpack_exports__);
 const FIRST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0];
 const LAST_MENU_FOCUS_ELEMENT = _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.length - 1];
 const screenWidth = window.screen.width;
-let currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE;
+let currentNavigationStatus = null;
 let lastFocusInPage = null;
-_utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
 
-function onEscKeydown(evt) {
-  if (evt.key === 'Escape') {
+const menuInit = () => {
+  currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE; // when we have js we can added tabindex -1 for all links in hidden menu for block focus in hidden elements
+
+  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '-1'));
+  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.addEventListener('click', evt => {
     evt.preventDefault();
     menuLogick();
+  });
+};
+
+function menuLogick() {
+  if (currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN) {
+    closeNavigation();
+  } else {
+    openNavigation();
   }
 }
 
@@ -34,6 +44,7 @@ function openNavigation() {
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationElement.classList.add('navigation--open');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.headerElement.classList.add('header--open-menu');
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray.forEach(link => link.setAttribute('tabindex', '0'));
+  lastFocusInPage = document.activeElement;
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.navigationLinksArray[0].focus();
   screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.add('body--scrolloff') : null;
   document.addEventListener('keydown', onEscKeydown);
@@ -50,25 +61,17 @@ function closeNavigation() {
   screenWidth < 900 ? _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.classList.remove('body--scrolloff') : null;
   document.removeEventListener('keydown', onEscKeydown);
   _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.removeEventListener('keydown', menuFocus);
+  lastFocusInPage.focus();
   currentNavigationStatus = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE;
 }
 
-function menuLogick() {
-  if (currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN) {
-    lastFocusInPage.focus();
-    closeNavigation();
-  } else {
-    lastFocusInPage = document.activeElement;
-    openNavigation();
-  }
-}
-
-const menu = () => {
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.menuButtonElement.addEventListener('click', evt => {
+function onEscKeydown(evt) {
+  if (evt.key === 'Escape') {
     evt.preventDefault();
     menuLogick();
-  });
-};
+  }
+} // focus control when the menu is open
+
 
 function menuFocus(e) {
   if (e.key === 'Tab' || e.keyCode === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.KEYCODE_TAB) {
@@ -102,7 +105,9 @@ let touchStart = null; //Точка начала касания
 let touchPosition = null; //Текущая позиция
 //Чувствительность — количество пикселей, после которого жест будет считаться свайпом
 
-const sensitivity = 200;
+const sensitivity = 100;
+const leftSideMaxarea = 40; // зона в 40px от левого края - там где будут считаться свайпы для открытия
+
 _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.bodyElement.addEventListener("touchstart", function (e) {
   TouchStart(e);
 }); //Начало касания
@@ -155,17 +160,15 @@ function CheckAction() {
     y: touchStart.y - touchPosition.y
   };
 
-  if (Math.abs(d.x) > Math.abs(d.y)) {
-    //Проверяем, движение по какой оси было длиннее
-    if (Math.abs(d.x) > sensitivity) {
-      //Проверяем, было ли движение достаточно длинным
-      if (d.x > 0) {
-        //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-        menuLogick();
-      } else {
-        //Иначе он двигал им слева направо
-        console.log('right');
-        menuLogick();
+  if (Math.abs(d.x) > sensitivity) {
+    //Проверяем, было ли движение достаточно длинным
+    if (d.x > 0) {
+      //Если значение больше нуля, значит пользователь двигал пальцем справа налево
+      currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.OPEN ? closeNavigation() : null;
+    } else {
+      //Иначе он двигал им слева направо
+      if (touchStart.x < leftSideMaxarea) {
+        currentNavigationStatus === _utils_constants__WEBPACK_IMPORTED_MODULE_0__.NAVIGATION_STATUS.CLOSE ? openNavigation() : null;
       }
     }
   }
@@ -377,7 +380,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./source/scripts/modules/menu.js");
 
 
-(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();
+(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menuInit)();
 (0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
 }();
 /******/ })()
