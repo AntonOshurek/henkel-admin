@@ -1,6 +1,6 @@
 import { tchemeControl } from './modules/tcheme-control';
-import { menu } from './modules/menu';
+import { menuInit } from './modules/menu';
 
 
-menu();
+menuInit();
 tchemeControl();
