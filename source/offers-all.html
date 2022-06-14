@@ -41,7 +41,7 @@
   <header class="header">
     <h1 class="visually-hidden">Все предложения</h1>
     <div class="header__wrap header__wrap--no-welcome container">
-      <button class="header__menu-btn neumorphic-button" type="button"></button>
+      <button class="header__menu-btn neumorphic-button" type="button"><span class="visually-hidden">Открыть меню</span></button>
       <label class="header__search">
         <input class="header__search-input neumorphic-search" aria-label="поиск по данным на странице" type="text" placeholder="поиск">
       </label>
@@ -53,13 +53,13 @@
           <input class="theme-switcher__radio theme-switcher__radio--dark" type="radio" name="color-scheme" value="dark" aria-label="dark">
           <div class="theme-switcher__status"></div>
         </fieldset>
-        <button class="header__exit-button neumorphic-button" type="button"></button>
+        <button class="header__exit-button neumorphic-button" type="button"><span class="visually-hidden">выйти из порофиля</span></button>
       </div>
     </div>
   </header>
   <nav class="navigation custom-scroll">
     <ul class="navigation__main-list">
-      <img class="navigation__logo" src="./img/logo//henkel-logo.png" width="300" height="180" alt="">
+      <img class="navigation__logo" src="./img/logo//henkel-logo.png" width="300" height="180" alt="Овальный, красный логотип с надписью Henkel внутри">
       <li>
         <ul class="navigation__list">
           <h2 class="navigation__title">Предложения</h2>
@@ -112,18 +112,12 @@
             <a class="crumbs__link crumbs__text" href="index.html">Главная</a>
           </li>
           <li class="crumbs__item">
-            <p class="crumbs__link crumbs__text crumbs__link--dropdown-arrow">Предлодения</p>
+            <p class="crumbs__link crumbs__text crumbs__link--dropdown-arrow">Все предложения</p>
             <ul class="crumbs__dropdown">
-              <li>
-                <p class="crumbs__droped-link crumbs__text crumbs__text crumbs__text--active">Все предложения</p>
-              </li>
               <li>
                 <a class="crumbs__droped-link crumbs__text" href="">Предложения по дате</a>
               </li>
             </ul>
-          </li>
-          <li class="crumbs__item crumbs__text crumbs__text--active">
-            Все предложения
           </li>
         </div>
       </ol>

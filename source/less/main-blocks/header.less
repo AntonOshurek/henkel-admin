@@ -102,6 +102,10 @@
   background-position: center;
   background-size: 70%;
   background-repeat: no-repeat;
+  // animation run when the menu closes
+  transition: all 1s ease-in-out;
+  animation-duration: 1s;
+  animation-name: hide-mobile-btn;
 }
 
 .header__welcome {
@@ -116,16 +120,16 @@
 .header__welcome-text {
   font-family: 'Jost', sans-serif;
   color: var(--standart-text-color);
-  font-size: 16px;
-  font-weight: 300;
+  font-size: @header-subtext-size;
+  font-weight: @header-subtext-weight;
   line-height: 90%;
 }
 
 .header__name-title {
   font-family: 'Jost', sans-serif;
   color: var(--standart-text-color);
-  font-size: 18px;
-  font-weight: 500;
+  font-size: @header-text-size;
+  font-weight: @header-text-weight;
   line-height: 90%;
 }
 
@@ -157,7 +161,7 @@
     cursor: pointer;
 
     @media (max-width: @tablet-width) {
-      left: calc((100% - @mobile-search-width) / 2);
+      left: calc((100% - @header-mobile-search-width) / 2);
     }
     @media (max-width: @mobile-width) {
       left: 0;
@@ -166,11 +170,11 @@
 }
 
 .header__search-input {
-  width: @search-width;
+  width: @header-search-width;
   padding: 10px 10px 10px 45px;
 
-  font-size: 18px;
-  font-weight: 500;
+  font-size: @header-text-size;
+  font-weight: @header-text-weight;
   color: var(--standart-text-color);
   font-family: 'Jost', sans-serif;
 
@@ -217,5 +221,13 @@
 @keyframes show-mobile-btn {
   0% { opacity: 0; }
   80%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes hide-mobile-btn {
+  0% { opacity: 1; }
+  20%  { opacity: 0; }
+  80% { opacity: 0; }
+  90% { opacity: 0.8; }
   100% { opacity: 1; }
 }
