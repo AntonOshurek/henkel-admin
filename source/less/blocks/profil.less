@@ -1,0 +1,52 @@
+.profil {
+  // height: 100%;
+}
+
+.profil__wrap {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content;
+}
+
+.profil__image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  @media (max-width: @tablet-width) {
+    height: 250px;
+  }
+  @media (max-width: @mobile-width) {
+    height: 200px;
+  }
+}
+
+.profil__data {
+  position: relative;
+}
+
+.profil__person-image {
+  position: absolute;
+  top: -125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var( --back-color);
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: @tablet-width) {
+    height: 200px;
+    width: 200px;
+    top: -100px;
+  }
+  @media (max-width: @mobile-width) {
+    height: 150px;
+    width: 150px;
+    top: -75px;
+  }
+}
+
