@@ -48,10 +48,10 @@
       </div>
       <div class="header__controls">
         <fieldset class="theme-switcher neumorphic-button">
-          <legend class="visually-hidden">Scheme</legend>
-          <input class="theme-switcher__radio theme-switcher__radio--light" type="radio" name="color-scheme" value="light" aria-label="light">
-          <input class="theme-switcher__radio theme-switcher__radio--auto" type="radio" name="color-scheme" value="auto" aria-label="auto tcheme" checked>
-          <input class="theme-switcher__radio theme-switcher__radio--dark" type="radio" name="color-scheme" value="dark" aria-label="dark">
+          <legend class="visually-hidden">Цветовая тема</legend>
+          <input class="theme-switcher__radio theme-switcher__radio--light" type="radio" name="color-scheme" value="light" aria-label="светлая тема">
+          <input class="theme-switcher__radio theme-switcher__radio--auto" type="radio" name="color-scheme" value="auto" aria-label="автоматическая тема" checked>
+          <input class="theme-switcher__radio theme-switcher__radio--dark" type="radio" name="color-scheme" value="dark" aria-label="тёмная тема">
           <div class="theme-switcher__status"></div>
         </fieldset>
         <button class="header__exit-button neumorphic-button" type="button"><span class="visually-hidden">выйти из порофиля</span></button>
@@ -126,6 +126,35 @@
 
     </div>
   </main>
+
+  <footer class="footer">
+    <div class="footer__wrap footer__wrap--contacts container">
+      <ul class="contacts-list">
+        <li class="contacts-list__item">
+          <a class="contacts-list__link contacts-list__link--instagram" href="#">
+            <span class="visually-hidden">Ссылка на профиль компании в instagram</span>
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li class="contacts-list__item contacts-list__link--twitter">
+          <a class="contacts-list__link" href="#">
+            <span class="visually-hidden">Ссылка на профиль компании в twitter</span>
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="contacts-list__item contacts-list__link--facebook">
+          <a class="contacts-list__link" href="#">
+            <span class="visually-hidden">Ссылка на профиль компании в facebook</span>
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="footer__suport">
+        Если возник вопрос или что-то не получается, пишите.
+        <a class="footer__sup-link" href="mailto:support@unicorn.com.pl">support@unicorn.com.pl</a>
+      </p>
+    </div>
+  </footer>
 
   <!-- preloader--load -->
   <div class="preloader preloader--load">

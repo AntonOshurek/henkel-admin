@@ -103,7 +103,7 @@
   background-size: 70%;
   background-repeat: no-repeat;
   // animation run when the menu closes
-  transition: all 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
   animation-duration: 1s;
   animation-name: hide-mobile-btn;
 }
@@ -183,7 +183,7 @@
   }
 
   @media (max-width: @tablet-width) {
-    width: @mobile-search-width;
+    width: @header-mobile-search-width;
   }
 
   @media (max-width: @mobile-width) {
