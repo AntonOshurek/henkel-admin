@@ -1,12 +1,12 @@
 .profil {
-  // height: 100%;
+  max-height: 100%;
 }
 
 .profil__wrap {
-  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content;
+  max-height: 100%;
 }
 
 .profil__image {
@@ -81,17 +81,51 @@
   text-align: center;
 }
 .profil__list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 10px;
+
 }
-.prodil__title {
+.profil__list-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) 1fr minmax(50px, max-content);
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    'title line description'
+  ;
+  grid-gap: 10px;
+  padding-top: 5px;
+  border-bottom: 1px solid var(--scrollbar-thumb-color);
+
+  &::after {
+    content: '';
+    grid-area: line;
+    align-self: center;
+    width: 100%;
+    height: 2px;
+    border-top: 2px dashed var(--crumbs-arrow-color);
+    top: 50%;
+    left: 0;
+  }
+}
+.profil__title {
+  grid-area: title;
+  position: relative;
   font-size: 18px;
   color: var(--standart-text-color);
   font-weight: 400;
   text-align: left;
+
+  &::after {
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: tomato;
+  }
 }
-.prodil__description {
+.profil__description {
+  word-break: break-all;
+  grid-area: description;
   font-size: 18px;
   color: var(--standart-text-color);
   font-weight: 400;
