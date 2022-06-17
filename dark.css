@@ -1,5 +1,5 @@
 :root{--main-color:#f73859;--back-color:#232931;--standart-text-color:#EFEFEF;--sub-text-color:#888686;--hover-text-color:#f73859;--menu-hover-color:rgba(229, 231, 235, 0.3);--menu-mobile-bg-color:rgba(35, 41, 49, 0.9);--scrollbar-thumb-color:#888686;--scrollbar-hover-color:#555;--main-table-shadow:9px 9px 16px rgba(0, 0, 0, 0.4),
   -9px -9px 16px rgba(191, 191, 191, 0.1);--main-table-head-shadow:0.2rem 0.2rem 0.12rem #000000,
-  -.2rem -.2rem .5rem	#404040;--shadow:0.2rem 0.2rem 0.12rem #000000,
-  -.2rem -.2rem .5rem	#404040;--inner-shadow:inset 0.2rem 0.2rem 0.12rem #000000,
-  inset -.2rem -.2rem .5rem #404040;--data-list-color:#1f2937;--crumbs-arrow-color:#7D8597}.theme-switcher__radio,.theme-switcher__status{filter:invert(1)}.theme-switcher__radio:checked{filter:invert(0)}
+  -.2rem -.2rem .5rem	#404040;--shadow:4px 4px 20px #181818,
+  -4px -4px 8px	#404040;--inner-shadow:inset 2px 2px 20px #181818,
+  inset -4px -4px 8px #404040;--data-list-color:#1f2937;--crumbs-arrow-color:#7D8597}.theme-switcher__radio,.theme-switcher__status{filter:invert(1)}.theme-switcher__radio:checked{filter:invert(0)}
