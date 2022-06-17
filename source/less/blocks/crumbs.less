@@ -12,8 +12,8 @@
   gap: 5px;
   list-style: none;
 
-  & li:hover > .crumbs__link,
-  & li:focus-within > .crumbs__link {
+  & li:hover > .crumbs__crumb,
+  & li:focus-within > .crumbs__crumb {
     transition: @standart-hover-animation;
     color: var(--main-color);
   }
@@ -43,12 +43,13 @@
   }
 }
 
-.crumbs__link {
+.crumbs__crumb {
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
   transition: @standart-hover-animation;
+  text-decoration: none;
 
   &--dropdown-arrow {
     padding-right: 12px;
@@ -94,12 +95,6 @@
   display: flex;
   justify-content: start;
   transition: @standart-hover-animation;
-
-  &:hover,
-  &:focus{
-    color: var(--main-color);
-    transition: @standart-hover-animation;
-  }
 }
 
 .crumbs__text {
@@ -112,5 +107,12 @@
 
   &--active {
     color: var(--standart-text-color);
+    cursor: default;
+  }
+
+  &:not(.crumbs__text--active):hover,
+  &:not(.crumbs__text--active):focus {
+    color: var(--main-color);
+    transition: @standart-hover-animation;
   }
 }

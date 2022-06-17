@@ -111,13 +111,19 @@
       <ol class="crumbs ">
         <div class='crumbs__wrap container'>
           <li class="crumbs__item">
-            <a class="crumbs__link crumbs__text" href="index.html">Главная</a>
+            <a class="crumbs__crumb" href="index.html">
+              <span class="crumbs__text">Главная</span>
+            </a>
           </li>
           <li class="crumbs__item">
-            <p class="crumbs__link crumbs__text crumbs__link--dropdown-arrow">Мои данные</p>
+            <p class="crumbs__crumb crumbs__crumb--dropdown-arrow">
+              <span class="crumbs__text crumbs__text--active">Мои данные</span>
+            </p>
             <ul class="crumbs__dropdown">
               <li>
-                <a class="crumbs__droped-link crumbs__text" href="">техническая поддержка</a>
+                <a class="crumbs__droped-link" href="">
+                  <span class="crumbs__text">техническая поддержка</span>
+                </a>
               </li>
             </ul>
           </li>
@@ -128,7 +134,43 @@
         <img class="profil__image" src="./img/profil.jpg" alt="">
         <div class="profil__data">
           <img class="profil__person-image" src="./img/profil-person.jpg" alt="Ваша фотография">
-          
+
+          <section class="profil__block">
+            <h3 class="profil__section-title">Карта клиента</h3>
+            <dl class="profil__list">
+              <div class="profil__list-item">
+                <dt class="profil__title">Идентификатор клиента в системе</dt>
+                <dd class="profil__description">ТСЛГруп_Київ/582</dd>
+              </div>
+              <div class="profil__list-item">
+                <dt class="profil__title">Сокращённое название</dt>
+                <dd class="profil__description">ТСЛ Груп</dd>
+              </div>
+              <div class="profil__list-item">
+                <dt class="profil__title">Номер SAP клиента</dt>
+                <dd class="profil__description">ТОВ ТСЛ Груп</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="profil__block">
+            <h3 class="profil__section-title">Контактные данные</h3>
+            <dl class="profil__list">
+              <div class="profil__list-item">
+                <dt class="profil__title">Область</dt>
+                <dd class="profil__description">2763388</dd>
+              </div>
+              <div class="profil__list-item">
+                <dt class="profil__title">Часть страны</dt>
+                <dd class="profil__description">UA-Kyiv</dd>
+              </div>
+              <div class="profil__list-item">
+                <dt class="profil__title">Город</dt>
+                <dd class="profil__description">Center</dd>
+              </div>
+            </dl>
+          </section>
+
         </div>
       </section>
 
