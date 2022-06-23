@@ -58,6 +58,8 @@
   @media (max-width: @tablet-width) {
     grid-template-columns: 1fr;
     padding-top: calc(@person-image-tablet-size / 2 + @person-block-top-padding);
+    padding-left: 10px;
+    padding-right: 10px;
   }
   @media (max-width: @mobile-width) {
     padding-top: calc(@person-image-mobile-size / 2 + @person-block-top-padding);
@@ -90,11 +92,14 @@
 
 .profil__block {
   width: 100%;
-  min-width: max-content;
   background-color: var(--back-color);
   box-shadow: var(--shadow);
   padding: 20px;
   border-radius: 20px;
+
+  @media (max-width: @tablet-width) {
+    padding: 20px 15px;
+  }
 }
 
 .profil__section-title {
