@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  &--open {
+  &--open { // class for JS logick!
     & > .navigation__main-list {
       width: @basic-nav-width;
       transform: translateX(0%);
@@ -44,25 +44,22 @@
   gap: 20px;
   list-style: none;
 
+  background-color: var(--menu-mobile-bg-color);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+
   transform: translateX(-100%);
   overflow-x: hidden;
   transition: transform 1s ease, width 1s ease;
-
-  @media (max-width: @tablet-width) {
-    background-color: var(--menu-mobile-bg-color);
-    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
-  }
 }
 
 .navigation__logo {
-  align-self: start;
+  align-self: center;
   padding: @nav-elem-padding 0 0 @nav-elem-padding;
   width: 200px;
   height: 100px;
   object-fit: contain;
 
   @media (max-width: @tablet-width) {
-    align-self: center;
     width: 150px;
     height: 100px;
   }
@@ -80,12 +77,13 @@
 
   @media (max-width: @tablet-width) {
     min-width:  @mobile-nav-width;
+    // calculate the padding to fit the menu button on the left side!
     padding-left: calc(@standart-side-padding + @header-menu-btn-size + @nav-elem-padding);
   }
 }
 
 .navigation__title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: @basic-font;
   font-size: @nav-title-size;
   font-weight: @nav-title-weight;
   color: var(--sub-text-color);
@@ -130,20 +128,21 @@
 }
 
 .navigation__link {
-  padding: 3px;
-  font-family: 'Jost', sans-serif;
-  font-weight: @nav-link-weight;
-  font-size: @nav-link-size;
-  color: var(--standart-text-color);
-  transition: @standart-hover-animation;
-  text-decoration: none;
-
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 10px;
   position: relative;
   padding-left: @nav-icon-size + @nav-elem-padding;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  font-family: @basic-font;
+  font-weight: @nav-link-weight;
+  font-size: @nav-link-size;
+  color: var(--standart-text-color);
+  transition: @standart-hover-animation;
+  text-decoration: none;
 
   &:hover {
     color: var(--main-color);
@@ -194,15 +193,19 @@
 //only for opened inner pages!!!
 .navigation__inner-page {
   align-self: flex-end;
+
   width: min-content;
   position: relative;
   display: flex;
   justify-content: end;
-  font-family: 'Jost', sans-serif;
   align-items: center;
+
+  padding-left: @nav-inner-page-title-size;
+
+  font-family: @basic-font;
+  font-weight: @nav-link-weight;
   font-size: @nav-inner-page-title-size;
   color: var(--sub-text-color);
-  padding-left: @nav-inner-page-title-size;
 
   &::before {
     position: absolute;

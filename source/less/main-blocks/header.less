@@ -2,7 +2,7 @@
   padding: @header-top-padding @standart-side-padding;
   grid-area: header;
 
-  &--open-menu {
+  &--open-menu { // this class used JS! For show and close mobile menu.
     @media (max-width: @tablet-width) {
       & .header__menu-btn {
         position: absolute;
@@ -118,7 +118,7 @@
 }
 
 .header__welcome-text {
-  font-family: 'Jost', sans-serif;
+  font-family: @basic-font;
   color: var(--standart-text-color);
   font-size: @header-subtext-size;
   font-weight: @header-subtext-weight;
@@ -126,7 +126,7 @@
 }
 
 .header__name-title {
-  font-family: 'Jost', sans-serif;
+  font-family: @basic-font;
   color: var(--standart-text-color);
   font-size: @header-text-size;
   font-weight: @header-text-weight;
@@ -173,10 +173,10 @@
   width: @header-search-width;
   padding: 10px 10px 10px 45px;
 
-  font-size: @header-text-size;
+  font-family: @basic-font;
   font-weight: @header-text-weight;
+  font-size: @header-text-size;
   color: var(--standart-text-color);
-  font-family: 'Jost', sans-serif;
 
   &::placeholder {
     color: var(--sub-text-color);
