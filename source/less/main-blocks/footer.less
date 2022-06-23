@@ -1,11 +1,7 @@
 .footer {
-  padding: @standart-side-padding;
+  padding: @footer-top-padding @standart-side-padding;
   grid-area: footer;
   align-self: start;
-
-  &--no-icons {
-    padding: @footer-top-padding @standart-side-padding;
-  }
 }
 
 .footer__wrap {
@@ -38,6 +34,8 @@
   align-items: center;
   text-align: center;
 
+  font-family: @basic-font;
+  font-weight: @footer-font-weight;
   font-size: @footer-font-size;
   color: var(--sub-text-color);
 }

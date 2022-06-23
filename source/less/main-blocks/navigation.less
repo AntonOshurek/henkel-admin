@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  &--open {
+  &--open { // class for JS logick!
     & > .navigation__main-list {
       width: @basic-nav-width;
       transform: translateX(0%);
@@ -43,26 +43,24 @@
   align-items: flex-start;
   gap: 20px;
   list-style: none;
+  padding-bottom: 20px;
+
+  background-color: var(--menu-mobile-bg-color);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
 
   transform: translateX(-100%);
   overflow-x: hidden;
   transition: transform 1s ease, width 1s ease;
-
-  @media (max-width: @tablet-width) {
-    background-color: var(--menu-mobile-bg-color);
-    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
-  }
 }
 
 .navigation__logo {
-  align-self: start;
+  align-self: center;
   padding: @nav-elem-padding 0 0 @nav-elem-padding;
   width: 200px;
   height: 100px;
   object-fit: contain;
 
   @media (max-width: @tablet-width) {
-    align-self: center;
     width: 150px;
     height: 100px;
   }
@@ -80,12 +78,13 @@
 
   @media (max-width: @tablet-width) {
     min-width:  @mobile-nav-width;
+    // calculate the padding to fit the menu button on the left side!
     padding-left: calc(@standart-side-padding + @header-menu-btn-size + @nav-elem-padding);
   }
 }
 
 .navigation__title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: @basic-font;
   font-size: @nav-title-size;
   font-weight: @nav-title-weight;
   color: var(--sub-text-color);
@@ -130,20 +129,21 @@
 }
 
 .navigation__link {
-  padding: 3px;
-  font-family: 'Jost', sans-serif;
-  font-weight: @nav-link-weight;
-  font-size: @nav-link-size;
-  color: var(--standart-text-color);
-  transition: @standart-hover-animation;
-  text-decoration: none;
-
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 10px;
   position: relative;
   padding-left: @nav-icon-size + @nav-elem-padding;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  font-family: @basic-font;
+  font-weight: @nav-link-weight;
+  font-size: @nav-link-size;
+  color: var(--standart-text-color);
+  transition: @standart-hover-animation;
+  text-decoration: none;
 
   &:hover {
     color: var(--main-color);
@@ -189,20 +189,28 @@
   &--product::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 201.607 201.607' style='enable-background:new 0 0 201.607 201.607' xml:space='preserve' fill='%23f73859'%3E%3Cpath d='M59.584 4.305 0 51.099v146.203h146.189v-.351l55.311-49.184V4.491l.107-.186H59.584zm1.951 5.501h57.068L73.252 51.099H10.529L61.535 9.806zm79.16 181.999H5.504V56.61h135.191v135.195zm1.679-140.706H81.43l45.355-41.293h60.669l-45.08 41.293zm53.625 94.192-49.807 44.285V55.064l49.807-45.623v135.85z' fill='%23f73859'/%3E%3Cpath d='M49.553 75.882h49.088v5.501H49.553z' fill='%23f73859'/%3E%3C/svg%3E");
   }
+
+  &--profil::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath d='M28.4 26.65h8.5v-2.5h-8.5Zm0 5.65h8.5v-2.5h-8.5Zm.8-18.3H41q1.2 0 2.1.9.9.9.9 2.1v24q0 1.2-.9 2.1-.9.9-2.1.9H7q-1.2 0-2.1-.9Q4 42.2 4 41V17q0-1.2.9-2.1.9-.9 2.1-.9h11.85V7q0-1.2.9-2.1.9-.9 2.1-.9h4.35q1.2 0 2.1.9.9.9.9 2.1Zm-7.35 3h4.35V7h-4.35ZM24 29.35Zm-6.3.45q1.15 0 1.925-.8.775-.8.775-1.9 0-1.15-.775-1.925-.775-.775-1.925-.775-1.1 0-1.9.775-.8.775-.8 1.925 0 1.1.8 1.9.8.8 1.9.8Zm-6.1 5.85h11.95v-.7q0-.9-.45-1.6-.45-.7-1.15-.95-1.6-.55-2.5-.725-.9-.175-1.75-.175-.95 0-2.025.225t-2.425.675q-.75.25-1.2.95-.45.7-.45 1.6ZM18.85 17H7v24h34V17H29.2q0 1.4-.925 2.2-.925.8-2.325.8h-3.9q-1.35 0-2.275-.8-.925-.8-.925-2.2Z' fill='%23f73859'/%3E%3C/svg%3E");
+  }
 }
 
 //only for opened inner pages!!!
 .navigation__inner-page {
   align-self: flex-end;
+
   width: min-content;
   position: relative;
   display: flex;
   justify-content: end;
-  font-family: 'Jost', sans-serif;
   align-items: center;
+
+  padding-left: @nav-inner-page-title-size;
+
+  font-family: @basic-font;
+  font-weight: @nav-link-weight;
   font-size: @nav-inner-page-title-size;
   color: var(--sub-text-color);
-  padding-left: @nav-inner-page-title-size;
 
   &::before {
     position: absolute;
