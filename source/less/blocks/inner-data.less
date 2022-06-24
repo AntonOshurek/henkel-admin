@@ -36,14 +36,16 @@
 }
 
 .info__item {
+  height: 100%;
   border-radius: 10px;
   padding: 20px 0 30px 0;
   min-width: min-content;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: stretch;
+  // height: min-content;
 
   &:nth-child(6n - 6) {
     background-color: var(--inner-data-n1-color);
@@ -99,10 +101,6 @@
 }
 
 .info__inner-desc {
-  text-align: right;
+  text-align: center;
   font-weight: @inner-data-font-weight + 100;
-
-  @media (max-width: @tablet-width) {
-    text-align: center;
-  }
 }
