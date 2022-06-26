@@ -1,4 +1,4 @@
-.time {
+.clock {
   width: 100%;
   height: min-content;
 
@@ -8,7 +8,7 @@
   justify-items: end;
 }
 
-.time__wrap {
+.clock__wrap {
   width: max-content;
   padding: 15px;
 
@@ -19,13 +19,13 @@
           box-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
 }
 
-.time__time {
+.clock__datetime {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.time__date {
+.clock__date {
   text-align: center;
   font-family: @basic-font;
   color: var(--time-color);
@@ -35,7 +35,7 @@
   text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 }
 
-.time__clock {
+.clock__time {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@
   }
 }
 
-.time__item {
+.clock__item {
   width: calc(@time-font-size * 1.4);
   display: flex;
   justify-content: center;
