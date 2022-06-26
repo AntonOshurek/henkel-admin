@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
   menuInit();
   tchemeControl();
 
-  if(document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/') {
+  if(document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/henkel-admin/' || document.location.pathname === '/') {
     initClock();
   }
 });
