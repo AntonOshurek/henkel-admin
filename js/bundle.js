@@ -471,7 +471,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menuInit)();
   (0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
 
-  if (document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/') {
+  if (document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/henkel-admin/' || document.location.pathname === '/') {
     (0,_modules_clock__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 });
