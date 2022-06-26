@@ -9,10 +9,10 @@ export const menuButtonElement = document.querySelector('.header__menu-btn');
 export const navigationLinksArray = document.querySelectorAll('.navigation__link');
 
 // clock block
-export const dateBlock = document.querySelector('.time__date'); // for full date yyyy-mm-dd
+export const dateBlock = document.querySelector('.clock__date'); // for full date yyyy-mm-dd
 
-export const hourseBlock = document.querySelector('.time__hourse');
+export const hourseBlock = document.querySelector('.clock__hourse');
 
-export const minutesBlock = document.querySelector('.time__minutes');
+export const minutesBlock = document.querySelector('.clock__minutes');
 
-export const secondsBlock = document.querySelector('.time__seconds');
+export const secondsBlock = document.querySelector('.clock__seconds');
