@@ -27,8 +27,11 @@
 
 .time__date {
   text-align: center;
-  color: whitesmoke;
-  font-size: 20px;
+  font-family: @basic-font;
+  color: var(--time-color);
+  font-weight: @time-font-weight;
+  font-size: @time-data-font-size;
+
   text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 }
 
@@ -38,14 +41,24 @@
   justify-content: center;
   align-items: center;
 
-  color: whitesmoke;
-  font-size: 45px;
+  font-family: @basic-font;
+  font-weight: @time-font-weight;
+  color: var(--time-color);
+  font-size: @time-font-size;
   text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+
+  @media (max-width: @tablet-width) {
+    font-size: @time-mobile-font-size;
+  }
 }
 
 .time__item {
-  width: calc(48px * 1.4);
+  width: calc(@time-font-size * 1.4);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: @tablet-width) {
+    width: calc(@time-mobile-font-size * 1.4);
+  }
 }
