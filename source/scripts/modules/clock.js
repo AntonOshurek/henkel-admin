@@ -8,7 +8,12 @@ function getZero (num) {
 
 let timeInterval;
 
-const timeBlock = document.querySelector('.time__time');
+const timeBlock = document.querySelector('.time__clock');
+const dateBlock = document.querySelector('.time__date');
+
+const hourseBlock = document.querySelector('.time__hourse');
+const minutesBlock = document.querySelector('.time__minutes');
+const secondsBlock = document.querySelector('.time__seconds');
 
 timeInterval = setInterval(updateClock, 1000);
 updateClock();
@@ -36,7 +41,11 @@ export default function getTime() {
 function updateClock() {
   const t = getTime();
 
-  timeBlock.textContent = `${t.hours} : ${t.minutes} : ${t.seconds}`;
+  hourseBlock.textContent = `${t.hours}`;
+  minutesBlock.textContent = `${t.minutes}`;
+  secondsBlock.textContent = `${t.seconds}`;
+
+  dateBlock.textContent = `${t.year}-${t.mounth}-${t.days}`;
 };
 
 console.log(getTime())

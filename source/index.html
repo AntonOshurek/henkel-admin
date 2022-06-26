@@ -109,7 +109,16 @@
     <div class="container">
       <section class="time">
         <h3 class="visually-hidden">Текущее время</h3>
-        <time class="time__time" datetime="2001-05-15 19:00"> 19:00</time>
+        <div class="time__wrap">
+          <time class="time__time" datetime="2001-05-15 19:00">
+            <div class="time__date"></div>
+            <div class="time__clock">
+              <span class="time__hourse time__item"></span>:
+              <span class="time__minutes time__item"></span>:
+              <span class="time__seconds time__item"></span>
+            </div>
+          </time>
+        </div>
       </section>
     </div>
   </main>
