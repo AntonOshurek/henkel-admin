@@ -367,11 +367,11 @@ const navigationElement = document.querySelector('.navigation');
 const menuButtonElement = document.querySelector('.header__menu-btn');
 const navigationLinksArray = document.querySelectorAll('.navigation__link'); // clock block
 
-const dateBlock = document.querySelector('.time__date'); // for full date yyyy-mm-dd
+const dateBlock = document.querySelector('.clock__date'); // for full date yyyy-mm-dd
 
-const hourseBlock = document.querySelector('.time__hourse');
-const minutesBlock = document.querySelector('.time__minutes');
-const secondsBlock = document.querySelector('.time__seconds');
+const hourseBlock = document.querySelector('.clock__hourse');
+const minutesBlock = document.querySelector('.clock__minutes');
+const secondsBlock = document.querySelector('.clock__seconds');
 
 /***/ }),
 
