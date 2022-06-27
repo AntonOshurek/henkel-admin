@@ -230,6 +230,39 @@ function CheckAction() {
 
 /***/ }),
 
+/***/ "./source/scripts/modules/popup.js":
+/*!*****************************************!*\
+  !*** ./source/scripts/modules/popup.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ popup; }
+/* harmony export */ });
+function popup() {
+  const infoControls = document.querySelector('.info-controls');
+  const popup = document.querySelector('.popup');
+  const closePopupButton = document.querySelector('.popup__close-button');
+  infoControls.addEventListener('click', evt => {
+    if (evt.target.tagName === 'BUTTON') {
+      const controlName = evt.target.getAttribute('data-control');
+
+      if (controlName === 'add-asort') {
+        popup.classList.add('popup--open');
+        closePopupButton.addEventListener('click', closePopup);
+      }
+    }
+  });
+
+  function closePopup() {
+    popup.classList.remove('popup--open');
+    closePopupButton.addEventListener('click', closePopup);
+  }
+}
+
+/***/ }),
+
 /***/ "./source/scripts/modules/tcheme-control.js":
 /*!**************************************************!*\
   !*** ./source/scripts/modules/tcheme-control.js ***!
@@ -464,6 +497,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/tcheme-control */ "./source/scripts/modules/tcheme-control.js");
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./source/scripts/modules/menu.js");
 /* harmony import */ var _modules_clock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/clock */ "./source/scripts/modules/clock.js");
+/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/popup */ "./source/scripts/modules/popup.js");
+
 
 
 
@@ -473,6 +508,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/henkel-admin/' || document.location.pathname === '/') {
     (0,_modules_clock__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  }
+
+  if (document.location.pathname === '/offer.html' || document.location.pathname === '/henkel-admin/offer.html') {
+    (0,_modules_popup__WEBPACK_IMPORTED_MODULE_3__["default"])();
   }
 });
 }();
