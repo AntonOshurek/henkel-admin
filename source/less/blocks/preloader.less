@@ -19,7 +19,8 @@
   height: 100%;
   z-index: @index-redirect;
 
-  background-image: linear-gradient(145deg,var(--shade3),var(--shade2));
+  // background-image: linear-gradient(145deg,var(--shade3),var(--shade2));
+  background-color: rgba(0, 0, 0, 0.3);
   color: var(--fg);
   display: flex;
   font: 1em/1.5 Hind, sans-serif;
@@ -46,9 +47,11 @@
 }
 
 .preloader__load {
+  background-image: linear-gradient(145deg,var(--shade3),var(--shade2));
 	animation: largePopOut var(--dur1) linear;
 	border-radius: 50%;
-	box-shadow: var(--shadow);
+	box-shadow: 4px 4px 20px #181818,
+  -4px -4px 8px	#404040;
 	margin-bottom: 20px;
 	position: relative;
 	width: 12em;
@@ -57,7 +60,8 @@
 .preloader__square {
 	animation: smallPopOut1 var(--dur1) linear, popInOut var(--dur2) var(--dur1) linear infinite;
 	border-radius: 0.5em;
-	box-shadow: var(--inner-shadow);
+	box-shadow: inset 2px 2px 20px #181818,
+  inset -4px -4px 8px #404040;
 	position: absolute;
 	top: 2.5em;
 	left: 2.5em;
