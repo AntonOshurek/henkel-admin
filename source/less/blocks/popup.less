@@ -8,13 +8,17 @@
   height: 70%;
   background: var(--data-list-color);
   box-shadow: var(--shadow);
-  animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1);
+  // animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) alternate;
 
-  display: none;
+  // display: none;
+  opacity: 0;
+  pointer-events: none;
 
   &--open {
-    display: block;
-    animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1);
+    // display: block;
+    opacity: 1;
+    pointer-events: all;
+    animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) alternate;
   }
 }
 

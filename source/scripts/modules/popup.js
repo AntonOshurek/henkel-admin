@@ -9,15 +9,12 @@ export default function popup() {
 
       if(controlName === 'add-asort') {
         popup.classList.add('popup--open');
-
         closePopupButton.addEventListener('click', closePopup);
       }
     }
   });
 
   function closePopup() {
-    console.log('close');
-
     popup.classList.remove('popup--open');
 
     closePopupButton.addEventListener('click', closePopup);
