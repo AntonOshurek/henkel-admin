@@ -42,6 +42,9 @@
     overflow: hidden;
   }
 
+  // for redirect page logick
+  // only used with modifier "--redirect"
+  //script for this styles added to the bottom of the page in tag <script>
   &::before {
     opacity: 0;
     pointer-events: none;
@@ -58,7 +61,7 @@
     left: 0;
     background-color: var(--back-color);
   }
-
+  // when body have modifier "--redirect" show ::before element
   &--redirect {
     transition: all .3s ease ;
     &::before {
