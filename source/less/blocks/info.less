@@ -10,12 +10,13 @@
 }
 
 .info__title {
-  width: max-content;
+  width: 100%;
   text-align: left;
   font-family: @basic-font;
   font-weight: @inner-data-font-weight;
   font-size: @inner-data-title-font-size;
   color: var(--standart-text-color);
+  line-height: @inner-data-title-font-size + 3px;
 }
 
 .info__list {
@@ -25,6 +26,7 @@
   grid-gap: @inner-data-padding;
   border-radius: 15px;
   list-style: none;
+  overflow-X: scroll;
 
   @media (min-width: @desctope-width) {
     grid-template-columns: repeat(3, 1fr);
