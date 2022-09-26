@@ -1,4 +1,5 @@
 :root{--main-color:#f73859;--back-color:#e0e5ec;--standart-text-color:#1D2127;--sub-text-color:#465162;--hover-text-color:#000000;--menu-hover-color:rgba(209, 213, 219, 0.9);--menu-mobile-bg-color:rgba(224, 229, 236, 0.95);--inner-data-text-color:#1D2127;--inner-data-n1-color:#ddf6df;--inner-data-n2-color:#e9e7fd;--inner-data-n3-color:#fee4cb;--inner-data-n4-color:#ffd3e2;--inner-data-n5-color:#c8f7dc;--inner-data-n6-color:#d5deff;--scrollbar-thumb-color:#888686;--scrollbar-hover-color:#555;--time-color:#F5F5F5;--main-table-shadow:9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);--main-table-head-shadow:9px 9px 16px rgba(163, 177, 198, 0.6);--shadow:0.3rem 0.3rem 0.9rem #c8d0e7,
+  -9px -9px 16px rgba(255, 255, 255, 0.6);--main-table-head-shadow:9px 9px 16px rgba(163, 177, 198, 0.6);--dropdown-crumbs-shadow:6px 6px 14px #9d9d9d,
+  -4px -4px 10px #ffffff;--shadow:0.3rem 0.3rem 0.9rem #c8d0e7,
   -.2rem -.2rem .8rem #ffffff;--inner-shadow:inset 0.2rem 0.2rem 0.5rem #c8d0e7,
   inset -.2rem -.2rem .5rem #ffffff;--data-list-color:#ffffff;--crumbs-arrow-color:#7D8597}.theme-switcher__radio,.theme-switcher__status{filter:invert(0)}.theme-switcher__radio:checked{filter:invert(1)}

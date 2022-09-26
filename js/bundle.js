@@ -249,6 +249,7 @@ function popup() {
       const controlName = evt.target.getAttribute('data-control');
 
       if (controlName === 'add-asort') {
+        popup.classList.remove('popup--close');
         popup.classList.add('popup--open');
         closePopupButton.addEventListener('click', closePopup);
       }
@@ -257,6 +258,7 @@ function popup() {
 
   function closePopup() {
     popup.classList.remove('popup--open');
+    popup.classList.add('popup--close');
     closePopupButton.addEventListener('click', closePopup);
   }
 }
