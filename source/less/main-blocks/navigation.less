@@ -13,13 +13,9 @@
 
   &--open { // class for JS logick!
     & > .navigation__main-list {
-      width: @basic-nav-width;
+      width: @nav-width;
       transform: translateX(0%);
       transition: transform 1s ease, width 1s ease;
-
-      @media (max-width: @tablet-width) {
-        width: @mobile-nav-width;
-      }
     }
 
     @media (max-width: @tablet-width) {
@@ -32,19 +28,6 @@
     position: absolute;
     top: 0;
     left: 0;
-  }
-}
-
-.navigation__logo {
-  align-self: center;
-  padding: @nav-elem-padding 0 0 @nav-elem-padding;
-  width: 200px;
-  height: 100px;
-  object-fit: contain;
-
-  @media (max-width: @tablet-width) {
-    width: 150px;
-    height: 100px;
   }
 }
 
@@ -69,8 +52,21 @@
   }
 }
 
+.navigation__logo {
+  align-self: center;
+  padding: @nav-elem-padding 0 0 @nav-elem-padding;
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+
+  @media (max-width: @tablet-width) {
+    width: 150px;
+    height: 100px;
+  }
+}
+
 .navigation__list {
-  min-width: @basic-nav-width;
+  min-width: @nav-width;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
