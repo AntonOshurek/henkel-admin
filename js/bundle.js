@@ -2,58 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./source/scripts/modules/clock.js":
-/*!*****************************************!*\
-  !*** ./source/scripts/modules/clock.js ***!
-  \*****************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ initClock; }
-/* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ "./source/scripts/utils/utils.js");
-/* harmony import */ var _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/node-elements */ "./source/scripts/utils/node-elements.js");
-
-
-function initClock() {
-  const timeInterval = setInterval(updateClock, 1000);
-  updateClock(); // for first launch
-}
-;
-
-function getTime() {
-  const t = new Date();
-  const year = t.getFullYear();
-  const mounth = t.getMonth() + 1;
-  const days = t.getDate();
-  const hours = t.getHours();
-  const minutes = t.getMinutes();
-  const seconds = t.getSeconds();
-  return {
-    'year': year,
-    'mounth': (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getZero)(mounth),
-    'days': (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getZero)(days),
-    'hours': (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getZero)(hours),
-    'minutes': (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getZero)(minutes),
-    'seconds': (0,_utils_utils__WEBPACK_IMPORTED_MODULE_0__.getZero)(seconds)
-  };
-}
-
-;
-
-function updateClock() {
-  const t = getTime();
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.dateBlock.textContent = `${t.year}-${t.mounth}-${t.days}`;
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.hourseBlock.textContent = `${t.hours}`;
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.minutesBlock.textContent = `${t.minutes}`;
-  _utils_node_elements__WEBPACK_IMPORTED_MODULE_1__.secondsBlock.textContent = `${t.seconds}`;
-}
-
-;
-
-/***/ }),
-
 /***/ "./source/scripts/modules/menu.js":
 /*!****************************************!*\
   !*** ./source/scripts/modules/menu.js ***!
@@ -408,29 +356,6 @@ const hourseBlock = document.querySelector('.clock__hourse');
 const minutesBlock = document.querySelector('.clock__minutes');
 const secondsBlock = document.querySelector('.clock__seconds');
 
-/***/ }),
-
-/***/ "./source/scripts/utils/utils.js":
-/*!***************************************!*\
-  !*** ./source/scripts/utils/utils.js ***!
-  \***************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getZero": function() { return /* binding */ getZero; }
-/* harmony export */ });
-function getZero(num) {
-  if (num >= 0 && num < 10) {
-    return `0${num}`;
-  } else {
-    return num;
-  }
-}
-
-;
-
-
 /***/ })
 
 /******/ 	});
@@ -498,9 +423,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/tcheme-control */ "./source/scripts/modules/tcheme-control.js");
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./source/scripts/modules/menu.js");
-/* harmony import */ var _modules_clock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/clock */ "./source/scripts/modules/clock.js");
-/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/popup */ "./source/scripts/modules/popup.js");
-
+/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/popup */ "./source/scripts/modules/popup.js");
 
 
 
@@ -508,12 +431,8 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menuInit)();
   (0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
 
-  if (document.location.pathname === '/index.html' || document.location.pathname === '/henkel-admin/index.html' || document.location.pathname === '/henkel-admin/' || document.location.pathname === '/') {
-    (0,_modules_clock__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  }
-
   if (document.location.pathname === '/offer.html' || document.location.pathname === '/henkel-admin/offer.html') {
-    (0,_modules_popup__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 });
 }();
