@@ -154,24 +154,13 @@
 
   <!-- preloader--load -->
   <div class="preloader preloader--load">
-    <div class="preloader__wrap">
-      <div class="preloader__load">
-        <div class="preloader__square"></div>
-        <div class="preloader__square"></div>
-        <div class="preloader__square"></div>
-        <div class="preloader__square"></div>
-      </div>
-      <div class="status">Loading
-        <span class="status__dot">.</span>
-        <span class="status__dot">.</span>
-        <span class="status__dot">.</span>
-      </div>
-    </div>
+    <div class="preloader__loader"><span class="preloader__text">Загрузка...</span></div>
   </div>
 
   <script>
     window.addEventListener('beforeunload', event => {
       document.body.classList.add('body--redirect');
+      document.querySelector('.preloader').classList.add('preloader--load');
     });
 
     window.onload = function () {
