@@ -128,8 +128,13 @@
         </div>
       </ol>
 
-      <div class="info-table__title-wrap">
-        <h2 class="info-table__title container">Таблица всех предложений</h2>
+      <div class="info-controls">
+        <div class="info-controls__wrap container">
+          <h2 class="info-controls__title">Таблица всех предложений</h2>
+          <div class="info-controls__buttons">
+            <button class="info-controls__button neumorphic-button">создать инвестицию</button>
+          </div>
+        </div>
       </div>
       <div class="info-table__wrap">
         <table class="info-table__table">
@@ -276,24 +281,12 @@
 
     <!-- preloader--load -->
     <div class="preloader preloader--load">
-      <div class="preloader__wrap">
-        <div class="preloader__load">
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-          <div class="preloader__square"></div>
-        </div>
-        <div class="status">Loading
-          <span class="status__dot">.</span>
-          <span class="status__dot">.</span>
-          <span class="status__dot">.</span>
-        </div>
-      </div>
+      <div class="preloader__loader"><span class="preloader__text">Загрузка...</span></div>
     </div>
 
     <script>
       window.addEventListener('beforeunload', event => {
-        document.body.classList.add('body--redirect');
+        document.querySelector('.preloader').classList.add('preloader--load');
       });
 
       window.onload = function () {
