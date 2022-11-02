@@ -1,13 +1,13 @@
 .header {
-  padding: @header-top-padding @standart-side-padding;
-  grid-area: header;
+  padding: var(--header-top-padding) var(--standart-side-padding);
+  grid-area: header; // grid area set in global-styles!
 
   &--open-menu { // this class used JS! For show and close mobile menu.
     @media (max-width: @tablet-width) {
       & .header__menu-btn {
         position: absolute;
-        top: @header-top-padding;
-        left: @standart-side-padding;
+        top: var(--header-top-padding);
+        left: var(--standart-mobile-side-padding);
         transition: all 1s ease-in-out;
         animation-duration: 1s;
         animation-name: show-mobile-btn;
@@ -25,7 +25,7 @@
     "btn hello controls controls"
     "search search search search"
   ;
-  grid-gap: 20px;
+  grid-gap: var(--header-elements-gap);
   align-items: center;
 
   @media (max-width: @tablet-width) {
@@ -36,7 +36,6 @@
       "hello controls"
       "search search"
     ;
-    grid-gap: 10px;
   }
 
   &--no-search {
@@ -61,7 +60,6 @@
       "btn controls controls"
       "search search search"
     ;
-    grid-gap: 20px;
     align-items: center;
 
     @media (max-width: @tablet-width) {
@@ -71,7 +69,6 @@
         "btn controls"
         "search search"
       ;
-      grid-gap: 10px;
 
       & .header__controls {
         flex-direction: row;
@@ -93,9 +90,9 @@
 }
 
 .header__menu-btn {
-  z-index: @index-menu-btn;
-  width: @header-menu-btn-size;
-  height: @header-menu-btn-size;
+  z-index: var(--index-menu-btn);
+  width: var(--header-menu-btn-size);
+  height: var(--header-menu-btn-size);
   grid-area: btn;
   position: relative;
 
@@ -120,30 +117,31 @@
 }
 
 .header__welcome-text {
-  font-family: @basic-font;
+  font-family: var(--basic-font);
   color: var(--standart-text-color);
-  font-size: @header-subtext-size;
-  font-weight: @header-subtext-weight;
+  font-size: var(--header-subtext-size);
+  font-weight: var(--header-subtext-weight);
   line-height: 90%;
 }
 
 .header__name-title {
-  font-family: @basic-font;
+  font-family: var(--basic-font);
   color: var(--standart-text-color);
-  font-size: @header-text-size;
-  font-weight: @header-text-weight;
+  font-size: var(--header-text-size);
+  font-weight: var(--headet-text-weight);
   line-height: 90%;
 }
 
 .header__search {
   position: relative;
+  display: flex;
+  justify-content: center;
   justify-self: center;
   grid-area: search;
+  width: var(--header-search-width);
 
-  @media (max-width: @tablet-width) {
+  @media (max-width: @mobile-width) {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   &::before {
@@ -152,44 +150,41 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 40px;
+    width: var(--header-serch-icon-size);
     height: 100%;
-    border-radius: 15px 0 0 15px;
+
+    border-radius: var(--header-search-border-radius) 0 0 var(--header-search-border-radius);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 487.95 487.95' style='enable-background:new 0 0 487.95 487.95' xml:space='preserve'%3E%3Cpath d='m481.8 453-140-140.1c27.6-33.1 44.2-75.4 44.2-121.6C386 85.9 299.5.2 193.1.2S0 86 0 191.4s86.5 191.1 192.9 191.1c45.2 0 86.8-15.5 119.8-41.4l140.5 140.5c8.2 8.2 20.4 8.2 28.6 0 8.2-8.2 8.2-20.4 0-28.6zM41 191.4c0-82.8 68.2-150.1 151.9-150.1s151.9 67.3 151.9 150.1-68.2 150.1-151.9 150.1S41 274.1 41 191.4z' fill='%23f73859'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 60%;
     box-shadow: var(--inner-shadow);
     cursor: pointer;
-
-    @media (max-width: @tablet-width) {
-      left: calc((100% - @header-mobile-search-width) / 2);
-    }
-    @media (max-width: @mobile-width) {
-      left: 0;
-    }
   }
 }
 
 .header__search-input {
-  width: @header-search-width;
-  padding: 10px 10px 10px 45px;
+  width: 100%;
+  padding: var(--header-search-input-padding);
+  padding-left: calc(var(--header-serch-icon-size) + var(--header-search-input-padding));
 
-  font-family: @basic-font;
-  font-weight: @header-text-weight;
-  font-size: @header-text-size;
+  font-family: var(--basic-font);
+  font-size: var(--header-text-size);
+  font-weight: var(--headet-text-weight);
   color: var(--standart-text-color);
+
+  border-radius: var(--header-search-border-radius);
+  border: none;
+  box-shadow: var(--inner-shadow);
+  background: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--shadow);
+  }
 
   &::placeholder {
     color: var(--sub-text-color);
-  }
-
-  @media (max-width: @tablet-width) {
-    width: @header-mobile-search-width;
-  }
-
-  @media (max-width: @mobile-width) {
-    width: 100%;
   }
 }
 
@@ -197,7 +192,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
+  width: max-content;
   grid-area: controls;
 
   @media (max-width: @tablet-width) {
@@ -207,8 +203,8 @@
 }
 
 .header__exit-button {
-  height: 40px;
-  width: 40px;
+  height: var(--exit-button-size);
+  width: var(--exit-button-size);
   transition: .0s ease;
 
   display: flex;
@@ -223,18 +219,4 @@
   &:hover {
     background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath d='M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h14.55v3H9v30h14.55v3Zm24.3-9.25-2.15-2.15 5.1-5.1h-17.5v-3h17.4l-5.1-5.1 2.15-2.15 8.8 8.8Z' fill='%23f73859'/%3E%3C/svg%3E");
   }
-}
-
-@keyframes show-mobile-btn {
-  0% { opacity: 0; }
-  80%  { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes hide-mobile-btn {
-  0% { opacity: 1; }
-  10%  { opacity: 0; }
-  80% { opacity: 0; }
-  90% { opacity: 0.8; }
-  100% { opacity: 1; }
 }
