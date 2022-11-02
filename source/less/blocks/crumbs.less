@@ -1,7 +1,7 @@
 .crumbs {
   width: 100%;
-  padding: @crumbs-top-padding @standart-side-padding;
-  z-index: @index-crumbs;
+  padding: var(--crumbs-top-padding) var(--standart-side-padding);
+  z-index: var(--index-crumbs);
 }
 
 .crumbs__wrap {
@@ -14,14 +14,14 @@
 
   & li:hover > .crumbs__crumb,
   & li:focus-within > .crumbs__crumb {
-    transition: @standart-hover-animation;
+    transition: var(--crumbs-hover-animation);
     color: var(--main-color);
   }
 }
 
 .crumbs__item {
   position: relative;
-  padding-right: @crumbs-font-size;
+  padding-right: var(--crumbs-font-size);
 
   &:not(:last-child):after {
     position: absolute;
@@ -29,11 +29,12 @@
     top: 0px;
     right: 0;
     color:var(--crumbs-arrow-color);
-    font-weight: @crumbs-font-wieght;
-    font-size: @crumbs-font-size;
+    font-size: var(--crumbs-font-size);
+    font-weight: var(--crumbs-font-weight);
     content: '>';
   }
 
+  //show dropdown menu only desctope devices.
   @media (min-width: @tablet-width) {
     &:hover .crumbs__dropdown,
     &:focus-within .crumbs__dropdown {
@@ -48,7 +49,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  transition: @standart-hover-animation;
+  transition: var(--crumbs-hover-animation);
   text-decoration: none;
 
   &--dropdown-arrow {
@@ -65,6 +66,7 @@
       border-right: 4px solid transparent;
     }
 
+    //when mobile device - hidden this element, because on touch screent we not have hover events.
     @media (max-width: @tablet-width) {
       padding-right: 0;
       &:after {
@@ -79,7 +81,7 @@
   pointer-events: none;
   position: absolute;
   min-width: 120px;
-  padding: @crumbs-top-padding;
+  padding: var(--crumbs-top-padding);
   list-style: none;
   background-color: var(--back-color);
   box-shadow: var(--dropdown-crumbs-shadow);
@@ -92,13 +94,13 @@
   text-decoration: none;
   display: flex;
   justify-content: start;
-  transition: @standart-hover-animation;
+  transition: var(--crumbs-hover-animation);
 }
 
 .crumbs__text {
-  font-family: @basic-font;
-  font-size: @crumbs-font-size;
-  font-weight: @crumbs-font-wieght;
+  font-family: var(--basic-font);
+  font-size: var(--crumbs-font-size);
+  font-weight: var(--crumbs-font-weight);
   color: var(--sub-text-color);
   user-select: none;
   white-space: nowrap;
@@ -111,6 +113,6 @@
   &:not(.crumbs__text--active):hover,
   &:not(.crumbs__text--active):focus {
     color: var(--main-color);
-    transition: @standart-hover-animation;
+    transition: var(--crumbs-hover-animation);
   }
 }
