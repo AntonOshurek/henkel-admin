@@ -1,21 +1,66 @@
+// .neumorphic-button {
+//   background-color: transparent;
+//   border: none;
+//   box-shadow: var(--shadow);
+//   border-radius: 10px;
+
+//   cursor: pointer;
+//   transition: .3s ease;
+
+//   &:hover {
+//     text-shadow: 0px 0px 5px #1D2127;
+//   }
+
+//   &:active {
+//     box-shadow: var(--inner-shadow);
+//   }
+
+//   &--inner {
+//     box-shadow: var(--inner-shadow);
+
+//     &:active {
+//       box-shadow: var(--shadow);
+//     }
+//   }
+// }
+
 .neumorphic-button {
   background-color: transparent;
   border: none;
-  box-shadow: var(--shadow);
-  border-radius: 15px;
+  box-shadow: var(--button-shadow);
+  border-radius: 10px;
 
   cursor: pointer;
-  transition: .3s ease;
+  transition: .2s ease;
+
+  &:hover {
+    color: var(--main-color);
+  }
 
   &:active {
-    box-shadow: var(--inner-shadow);
+    box-shadow: var(--button-inner-shadow);
   }
 
   &--inner {
-    box-shadow: var(--inner-shadow);
+    box-shadow: var(--button-inner-shadow);
 
     &:active {
-      box-shadow: var(--shadow);
+      box-shadow: var(--button-shadow);
     }
+  }
+}
+
+.neumorphic-input {
+  border: none;
+  box-shadow: var(--inner-shadow);
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--shadow);
+  }
+
+  &::placeholder {
+    color: var(--sub-text-color);
   }
 }
