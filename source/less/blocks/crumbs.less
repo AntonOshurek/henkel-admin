@@ -11,12 +11,6 @@
   align-items: center;
   gap: 5px;
   list-style: none;
-
-  & li:hover > .crumbs__crumb,
-  & li:focus-within > .crumbs__crumb {
-    transition: var(--crumbs-hover-animation);
-    color: var(--main-color);
-  }
 }
 
 .crumbs__item {
@@ -40,6 +34,9 @@
     &:focus-within .crumbs__dropdown {
       opacity: 1;
       pointer-events: all;
+      transition: all ease .3s;
+
+      transform: translateX(0px);
     }
   }
 }
@@ -66,7 +63,7 @@
       border-right: 4px solid transparent;
     }
 
-    //when mobile device - hidden this element, because on touch screent we not have hover events.
+    //when mobile device - hidden this element, because on touch screent we not have a hover events.
     @media (max-width: @tablet-width) {
       padding-right: 0;
       &:after {
@@ -77,16 +74,24 @@
 }
 
 .crumbs__dropdown {
-  opacity: 0;
-  pointer-events: none;
   position: absolute;
   min-width: 120px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateX(-40px);
+  transition: all ease .2s;
+
   padding: var(--crumbs-top-padding);
   list-style: none;
   background-color: var(--back-color);
   box-shadow: var(--dropdown-crumbs-shadow);
   z-index: 1;
   border-radius: 8px;
+
+  box-shadow: .6rem 0.3rem 0.3rem 0.1rem #c8d0e7,
+  -0.3rem -0.3rem 0.9rem #fff;
 }
 
 .crumbs__droped-link {
