@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: min-content;
-  grid-gap: var(--info-padding);
+  grid-gap: 20px;
   border-radius: 15px;
   padding: var(--standart-side-padding) var(--info-padding);
   list-style: none;
@@ -40,7 +40,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  // height: min-content;
+
+  box-shadow: var(--shadow);
 
   &:nth-child(6n - 6) {
     background-color: var(--inner-data-n1-color);
