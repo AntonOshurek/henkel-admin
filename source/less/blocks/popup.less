@@ -1,33 +1,48 @@
 .popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  z-index:1;
+
+  display:table;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.four {
+    z-index:5;
+    transform:scale(1);
+    background:rgba(0,0,0,.6);
+    transition: background .4s ease;
+    pointer-events: all;
+
+    .popup__wrap {
+      animation: blowUpModal .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    }
+
+    &.out {
+      background: transparent;
+      pointer-events: none;
+
+      .popup__wrap {
+        animation: blowUpModalTwo .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
+}
+
+.popup__wrap {
   border-radius: 20px;
   width: 90%;
   height: 70%;
-  background: var(--data-list-color);
+  background: var(--back-color);
   box-shadow: var(--shadow);
-  transition: 0;
 
-  opacity: 0;
-  pointer-events: none;
-
-
-  box-shadow:  40px 40px 40px #cccccc,
-  0 0 0 #ffffff,
-  0 0 0 #cccccc inset,
-  2px 2px 2px #ffffff inset;
-
-  &--open {
-    opacity: 1;
-    pointer-events: all;
-    animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) alternate;
-  }
-
-  &--close {
-    animation: anime-close 3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  padding: 20px;
+  z-index: 1;
 }
 
 .popup__close-button {
@@ -37,77 +52,22 @@
   color: var(--standart-text-color);
 }
 
-@keyframes anime {
+@keyframes blowUpModal {
   0% {
-    width: 0%;
-    height: 0%;
-    box-shadow:  0 0 0 #cccccc,
-                 0 0 0 #ffffff,
-                  10px 10px 10px #cccccc inset,
-                  -10px -10px 10px #ffffff inset;
-  }
-  25% {
-    width: 10%;
-    height: 10%;
-    box-shadow:  10px 10px 10px #cccccc,
-                 10px 10px 10px #ffffff,
-                 0 0 0 #cccccc inset,
-                 0 0 0 #ffffff inset;
-  }
-  50% {
-    width: 10%;
-    height: 70%;
-    box-shadow:  10px 10px 10px #cccccc,
-                 10px 10px 10px #ffffff,
-                 0 0 0 #cccccc inset,
-                 0 0 0 #ffffff inset;
+    transform:scale(0);
   }
   100% {
-    width: 90%;
-    height: 70%;
-    box-shadow:  40px 40px 40px #cccccc,
-                 0 0 0 #ffffff,
-                 0 0 0 #cccccc inset,
-                 2px 2px 2px #ffffff inset;
+    transform:scale(1);
   }
 }
 
-@keyframes anime-close {
-  100% {
-    width: 0%;
-    height: 0%;
-    opacity: 1;
-    box-shadow:  0 0 0 #cccccc,
-                 0 0 0 #ffffff,
-                  10px 10px 10px #cccccc inset,
-                  -10px -10px 10px #ffffff inset;
-  }
-  75% {
-    width: 10%;
-    height: 10%;
-    opacity: 1;
-    box-shadow:  10px 10px 10px #cccccc,
-                 10px 10px 10px #ffffff,
-                 0 0 0 #cccccc inset,
-                 0 0 0 #ffffff inset;
-  }
-  50% {
-    width: 10%;
-    height: 70%;
-    opacity: 1;
-    box-shadow:  10px 10px 10px #cccccc,
-                 10px 10px 10px #ffffff,
-                 0 0 0 #cccccc inset,
-                 0 0 0 #ffffff inset;
-  }
+@keyframes blowUpModalTwo {
   0% {
-    width: 90%;
-    height: 70%;
-    opacity: 0;
-    box-shadow:  40px 40px 40px #cccccc,
-                 0 0 0 #ffffff,
-                 0 0 0 #cccccc inset,
-                 2px 2px 2px #ffffff inset;
+    transform:scale(1);
+    opacity:1;
+  }
+  100% {
+    transform:scale(0);
+    opacity:0;
   }
 }
-
