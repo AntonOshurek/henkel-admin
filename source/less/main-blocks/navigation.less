@@ -20,7 +20,7 @@
 
     @media (max-width: @tablet-width) {
       width: 100%;
-      background-color: var(--menu-mobile-bg-color);
+      background-color: var(--menu-mobile-overlay-color);
     }
   }
 
@@ -41,7 +41,7 @@
   list-style: none;
   padding-bottom: var(--nav-bottom-padding);
 
-  background-color: var(--menu-mobile-bg-color);
+  background-color: var(--back-color);
 
   transform: translateX(-100%);
   overflow-x: hidden;
@@ -107,7 +107,7 @@
   &:hover,
   &:focus {
     &::before {
-      background-color: var(--menu-hover-color);
+      background-color: var(--menu-item-hover-color);
       transition: var(--nav-current-item-hover-animation);
       width: 100% + 5px;
     }
