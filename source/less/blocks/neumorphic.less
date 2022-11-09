@@ -53,3 +53,21 @@
     box-shadow: var(--colored-shadow);
   }
 }
+
+.neumorphic-colored-button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+
+  box-shadow: var(--colored-shadow);
+  background-color: transparent;
+
+  &:hover {
+    color: var(--main-color);
+  }
+
+  &:active {
+    outline: none;
+    box-shadow: var(--colored-inner-shadow);
+  }
+}
