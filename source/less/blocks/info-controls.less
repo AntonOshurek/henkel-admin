@@ -1,23 +1,29 @@
-.info-controls {
-  width: 100%;
-  padding: 0 var(--standart-side-padding);
+:root {
+  --info-controls-padding-for-shadow: 15px;
 }
 
-.info-controls__wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
+.info-controls {
+  width: 100%;
+  overflow: hidden;
 }
 
 .info-controls__buttons {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  padding: var(--info-controls-padding-for-shadow);
+  overflow: auto;
+
+  //calculate max width for see nepumophizm shadow in buttons!
+  max-width: calc(@desctope-width + calc(var(--info-controls-padding-for-shadow) * 2));
+  margin: 0 auto;
 }
 
 .info-controls__button {
+  width: max-content;
+  white-space: nowrap;
   padding: 10px 16px;
   color: var(--standart-text-color);
   font-size: 12px;

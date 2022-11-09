@@ -1,12 +1,23 @@
 .info {
   display: grid;
   grid-template-rows: min-content 1fr;
-  grid-row-gap: var(--info-padding);
   height: 100%;
-  padding-top: var(--info-padding);
 
   background-color: var(--data-list-color);
   background-color: var(--back-color);
+}
+
+.info__about {
+  width: 100%;
+  padding: 0 var(--standart-side-padding);
+}
+
+.info__about-title {
+  font-size: 18px;
+  font-weight: 500;
+
+  font-family: var(--basic-font);
+  color: var(--standart-text-color);
 }
 
 .info__list {
