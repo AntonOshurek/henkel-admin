@@ -85,6 +85,11 @@
   align-items: center;
   padding: calc(var(--info-padding) / 2) var(--info-padding);
   border-bottom: 1px solid var(--inner-data-text-color);
+
+  @media (max-width: @mobile-width) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+  }
 }
 
 .info__text {
@@ -103,11 +108,16 @@
 }
 
 .info__inner-name {
-  font-weight: calc(var(--info-wont-weight) + 100);
+  font-weight: calc(var(--info-wont-weight));
   text-align: left;
 }
 
 .info__inner-desc {
   text-align: center;
   font-weight: calc(var(--info-wont-weight) + 100);
+  font-size: calc(var(--info-font-size) + 1px);
+
+  @media (max-width: @mobile-width) {
+    text-align: left;
+  }
 }
