@@ -27,14 +27,14 @@
     }
   </script>
 
-  <title>предложение UFX/54894/2022</title>
-
   <!--dark and light theme styles-->
   <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="css/style.min.css">
 
   <script src="https://kit.fontawesome.com/b25c16cf76.js" crossorigin="anonymous"></script>
+
+  <title>Редактирование предложения UFX/54894/2022</title>
 </head>
 <body class="body body--no-footer custom-scroll">
   <header class="header">
@@ -53,6 +53,7 @@
       </div>
     </div>
   </header>
+
   <nav class="navigation custom-scroll">
     <ul class="navigation__main-list">
       <img class="navigation__logo" src="./img/logo//henkel-logo.png" width="300" height="180" alt="Овальный, красный логотип с надписью Henkel внутри">
@@ -100,6 +101,7 @@
       </li>
     </ul>
   </nav>
+
   <main class="main custom-scroll">
     <div class="offer">
 
@@ -134,10 +136,9 @@
         </div>
         <div class="info-controls">
             <div class="info-controls__buttons">
-              <button class="info-controls__button neumorphic-button" data-control="open-modal">добавить ассортимент</button>
+              <button class="info-controls__button neumorphic-button">Сохранить</button>
               <button class="info-controls__button neumorphic-button">к инвестиции</button>
-              <a href="offer-edit.html" class="info-controls__button neumorphic-button">Редактировать предложение</a>
-              <button class="info-controls__button neumorphic-button">Закрыть</button>
+              <a href="offers-all.html" class="info-controls__button neumorphic-button">Закрыть</a>
             </div>
         </div>
 
@@ -148,7 +149,10 @@
             <ul class="info__inner-list">
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Название объекта</h4>
-                <p class="info__inner-desc info__text">Test Test 1</p>
+                <!-- <p class="info__inner-desc info__text">Test Test 1</p> -->
+                <label class="neumorphic-label">
+                  <input class="neumorphic-colored-input" type="text" value="Test Test 1">
+                </label>
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Категория инвестиции</h4>
@@ -183,7 +187,10 @@
             <ul class="info__inner-list">
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Регион</h4>
-                <p class="info__inner-desc info__text">Center</p>
+                <!-- <p class="info__inner-desc info__text">Center</p> -->
+                <label class="neumorphic-label">
+                  <input class="neumorphic-colored-input" type="text" value="Test Test 1">
+                </label>
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Область</h4>
@@ -225,7 +232,10 @@
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Система утепления</h4>
-                <p class="info__inner-desc info__text">1 233</p>
+                <!-- <p class="info__inner-desc info__text">1 233</p> -->
+                <label class="neumorphic-label">
+                  <input class="neumorphic-colored-input" type="text" value="Test Test 1">
+                </label>
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Гидроизоляция</h4>
@@ -268,7 +278,10 @@
             <ul class="info__inner-list">
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Плательщик</h4>
-                <p class="info__inner-desc info__text">	Тестовыйдистрибьютор_1_Авдіївка/614</p>
+                <!-- <p class="info__inner-desc info__text">	Тестовыйдистрибьютор_1_Авдіївка/614</p> -->
+                <label class="neumorphic-label">
+                  <input class="neumorphic-colored-input" type="text" value="Test Test 1">
+                </label>
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Дистрибьютор</h4>
@@ -290,7 +303,10 @@
             <ul class="info__inner-list">
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Плательщик</h4>
-                <p class="info__inner-desc info__text">	Тестовыйдистрибьютор_1_Авдіївка/614</p>
+                <!-- <p class="info__inner-desc info__text">	Тестовыйдистрибьютор_1_Авдіївка/614</p> -->
+                <label class="neumorphic-label">
+                  <input class="neumorphic-colored-input" type="text" value="Test Test 1">
+                </label>
               </li>
               <li class="info__inner-item">
                 <h4 class="info__inner-name info__text">Исполнители</h4>
@@ -306,13 +322,6 @@
       </section>
     </div>
   </main>
-  <!-- POPUP -->
-  <div class="modal">
-    <div class="modal__wrap">
-      <button class="modal__close-button neumorphic-button" type="button">close popup</button>
-      <h3>Добавить продукт в ассортимент)</h3>
-    </div>
-  </div>
 
   <!-- preloader--load -->
   <div class="preloader preloader--load">
