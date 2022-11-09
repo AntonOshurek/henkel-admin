@@ -330,6 +330,17 @@
     <div class="preloader__loader"><span class="preloader__text">Загрузка...</span></div>
   </div>
 
+  <div class="notification">
+    <div class="notification__wrap">
+      <div class="notification__info-block">
+        <h4 class="notification__title">Обязательные поля не были заполнены!</h4>
+        <p class="notification__info"></p>
+        <button class="notification__close-button neumorphic-colored-button">Закрыть уведомление</button>
+      </div>
+      <div class="notification__warning-icon"></div>
+    </div>
+  </div>
+
   <script>
     window.addEventListener('beforeunload', event => {
       document.querySelector('.preloader').classList.add('preloader--load');
