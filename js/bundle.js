@@ -190,16 +190,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function popup() {
   const infoControls = document.querySelector('.info-controls');
-  const popup = document.querySelector('.popup');
-  const closePopupButton = document.querySelector('.popup__close-button');
+  const popup = document.querySelector('.modal');
+  const closePopupButton = document.querySelector('.modal__close-button');
   const body = document.querySelector('.body');
   infoControls.addEventListener('click', evt => {
     if (evt.target.tagName === 'BUTTON') {
       const controlName = evt.target.getAttribute('data-control');
 
-      if (controlName === 'add-asort') {
+      if (controlName === 'open-modal') {
         popup.classList.remove('out');
-        body.classList.add('body--open-popup');
+        popup.classList.add('open');
+        body.classList.remove('body--close-modal');
+        body.classList.add('body--open-modal');
         closePopupButton.addEventListener('click', closePopup);
       }
     }
@@ -207,7 +209,9 @@ function popup() {
 
   function closePopup() {
     popup.classList.add('out');
-    body.classList.remove('body--open-popup');
+    popup.classList.remove('open');
+    body.classList.remove('body--open-modal');
+    body.classList.add('body--close-modal');
     closePopupButton.addEventListener('click', closePopup);
   }
 }
