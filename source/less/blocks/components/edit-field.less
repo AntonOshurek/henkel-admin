@@ -14,9 +14,45 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  &--required {
+    & .edit-field__input {
+      border: 1px solid red;
+    }
+
+    & .edit-field__error {
+      display: block;
+    }
+  }
+}
+
+.edit-field__error {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  bottom: -35px;
+  left: 20px;
+  padding: 5px 10px;
+
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  background-color: #e74c3c;
+  color: #fff;
+
+  &:before {
+    content: "";
+    border: solid transparent;
+    position: absolute;
+    left: 8px;
+    bottom: 100%;
+    border-bottom-color: #e74c3c;
+    border-width: 9px;
+    margin-left: 0;
+}
 }
 
 .edit-field__input {
+  position: relative;
   padding: var(--edit-field-input-padding);
 
   color: var(--edit-field-font-color);
