@@ -12,6 +12,7 @@ export default function popup() {
       if(controlName === 'open-modal') {
         popup.classList.remove('out');
         popup.classList.add('open');
+        body.classList.remove('body--close-modal');
         body.classList.add('body--open-modal')
         closePopupButton.addEventListener('click', closePopup);
       }
@@ -22,6 +23,7 @@ export default function popup() {
     popup.classList.add('out');
     popup.classList.remove('open');
     body.classList.remove('body--open-modal');
+    body.classList.add('body--close-modal');
     closePopupButton.addEventListener('click', closePopup);
   }
 }
