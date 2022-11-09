@@ -11,6 +11,7 @@ export default function popup() {
 
       if(controlName === 'add-asort') {
         popup.classList.remove('out');
+        popup.classList.add('open');
         body.classList.add('body--open-popup')
         closePopupButton.addEventListener('click', closePopup);
       }
@@ -19,6 +20,7 @@ export default function popup() {
 
   function closePopup() {
     popup.classList.add('out');
+    popup.classList.remove('open');
     body.classList.remove('body--open-popup');
     closePopupButton.addEventListener('click', closePopup);
   }
