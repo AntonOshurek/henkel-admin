@@ -3,6 +3,28 @@
   margin: 0;
   padding: 0;
   font-family: var(--basic-font);
+
+  //custom-scroll
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--back-color);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 6px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var( --scrollbar-hover-color);
+  }
 }
 
 .visually-hidden {
