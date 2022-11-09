@@ -1,0 +1,30 @@
+.edit-field {
+  position: relative;
+
+  &::before {
+    content: '';
+    // z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: var(--edit-field-icon-size);
+    height: var(--edit-field-icon-size);
+    background-image: url('../img/icons/edit-icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.edit-field__input {
+  padding: var(--edit-field-input-padding);
+
+  color: var(--edit-field-font-color);
+  font-size: var(--edit-field-font-size);
+  font-weight: var(--edit-field-font-weight);
+
+  &:hover,
+  &:focus {
+    color: var(--standart-black);
+  }
+}
