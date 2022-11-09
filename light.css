@@ -1,6 +1,6 @@
 :root{--main-color:#f73859;--back-color:#EBECF0;--standart-text-color:#1D2127;--sub-text-color:#465162;--menu-item-hover-color:rgba(209, 213, 219, 0.9);--menu-mobile-overlay-color:rgba(224, 229, 236, 0.95);--inner-data-text-color:#1D2127;--inner-data-n1-color:#ddf6df;--inner-data-n2-color:#e9e7fd;--inner-data-n3-color:#fee4cb;--inner-data-n4-color:#ffd3e2;--inner-data-n5-color:#c8f7dc;--inner-data-n6-color:#d5deff;--scrollbar-thumb-color:#888686;--scrollbar-hover-color:#555;--main-table-shadow:9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);--main-table-head-shadow:9px 9px 16px rgba(163, 177, 198, 0.6);--dropdown-crumbs-shadow:6px 6px 14px 4px #9d9d9d,
-  -4px -4px 10px rgb(195 193 198 / 5%);--shadow:0.3rem 0.3rem 0.9rem #c8d0e7,
+  -4px -4px 10px rgb(195 193 198 / 10%);--shadow:0.3rem 0.3rem 0.9rem #c8d0e7,
   -.2rem -.2rem .8rem #ffffff;--inner-shadow:inset 0.2rem 0.2rem 0.5rem #c8d0e7,
   inset -.2rem -.2rem .5rem #ffffff;--button-shadow:0.3rem 0.3rem 0.5rem rgba(195, 193, 198, 0.9),
   -0.2rem -0.2rem 0.4rem #fff;--button-inner-shadow:inset 0.2rem 0.2rem 0.5rem rgba(195, 193, 198, 0.9),
