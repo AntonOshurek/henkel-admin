@@ -1,51 +1,56 @@
-.popup {
+.modal {
   position: fixed;
   width: 100%;
   height: 100%;
   top:0;
   left:0;
-  z-index:1;
-
-  display:table;
+  z-index:10;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &.four {
-    z-index:5;
+  background: transparent;
+  pointer-events: none;
+
+
+
+  &.open {
     transform:scale(1);
     background:rgba(0,0,0,.6);
     transition: background .4s ease;
     pointer-events: all;
 
-    .popup__wrap {
+    .modal__wrap {
       animation: blowUpModal .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
     }
+  }
 
-    &.out {
-      background: transparent;
-      pointer-events: none;
+  &.out {
+    background: transparent;
+    pointer-events: none;
 
-      .popup__wrap {
-        animation: blowUpModalTwo .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-      }
+    .modal__wrap {
+      animation: blowUpModalTwo .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
     }
   }
 }
 
-.popup__wrap {
+.modal__wrap {
   border-radius: 20px;
   width: 90%;
-  height: 70%;
+  height: 90%;
   background: var(--back-color);
   box-shadow: var(--shadow);
 
   padding: 20px;
   z-index: 1;
+
+  transform:scale(0);
+  opacity:0;
 }
 
-.popup__close-button {
+.modal__close-button {
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -58,6 +63,7 @@
   }
   100% {
     transform:scale(1);
+    opacity: 1;
   }
 }
 
