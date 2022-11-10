@@ -10,9 +10,7 @@
     width: 100%;
   }
 
-  :focus-within > &::before {
-    box-shadow: var(--button-shadow);
-  }
+
 
   &::before {
     content: '';
@@ -30,6 +28,12 @@
     background-size: 60%;
     box-shadow: var(--button-inner-shadow);
     cursor: pointer;
+  }
+
+  &:focus-within {
+    &::before{
+      box-shadow: var(--button-shadow);
+    }
   }
 }
 
