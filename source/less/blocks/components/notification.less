@@ -3,8 +3,7 @@
   position: fixed;
   top: 70px;
   right: 20px;
-  box-shadow: 0.5rem 0.5rem 0.7rem rgb(195 193 198 / 90%),
-  -0.3rem -0.3rem 0.6rem #fff;;;
+  box-shadow: var(--notification-shadow);
   border-radius: 20px;
 
   color: var(--standart-black);
@@ -66,7 +65,9 @@
 }
 
 .notification__info {
-
+  font-family: var(--basic-font);
+  font-size: var(--notification-font-size);
+  font-weight: var(--notification-font-weight);
 }
 
 .notification__close-button {
@@ -75,7 +76,6 @@
 }
 
 .notification__warning-icon {
-  // background-image: url('../img/icons/notification-warning.svg');
   width: 50px;
   height: 40px;
 }
