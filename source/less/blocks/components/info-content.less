@@ -1,0 +1,23 @@
+.info-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+
+  background-color: var(--back-color);
+}
+
+.info-content__about {
+  width: 100%;
+  padding: 0 var(--standart-side-padding);
+}
+
+.info-content__title {
+  font-family: var(--basic-font);
+  font-size: var(  --info-item-title-font-size);
+  font-weight: var(  --info-title-font-weight);
+  color: var(--standart-text-color);
+
+  @media (max-width: @mobile-width) {
+    font-size: var(--info-item-title-mobile-font-size);
+  }
+}
