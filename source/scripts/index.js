@@ -7,7 +7,10 @@ import requiredField from './modules/required-field';
 window.addEventListener('DOMContentLoaded', () => {
   menuInit();
   tchemeControl();
-  requiredField();
+
+  if(document.location.pathname === '/offer-edit.html' || document.location.pathname === '/henkel-admin/offer.html') {
+    requiredField();
+  }
 
   if(document.location.pathname === '/offer.html' || document.location.pathname === '/henkel-admin/offer.html') {
     popup();
