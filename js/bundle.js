@@ -235,12 +235,9 @@ const requiredField = () => {
   const requiredInputs = document.getElementsByTagName('input');
   const submitButton = document.querySelector('.info-controls__submit-button');
   const notification = document.querySelector('.notification');
+  const requiredFieldsNotificationText = 'Обязательные поля не были заполнены!';
+  const saveDocumentSuccessText = 'Документ был сохранён успешно.';
   let errorsArray = [];
-  notification.querySelector('.notification__close-button').addEventListener('click', evt => {
-    evt.preventDefault();
-    notification.classList.remove('notification--show-error');
-    notification.classList.remove('notification--show-success');
-  });
 
   for (let i = 0; i < requiredInputs.length; i++) {
     if (requiredInputs[i].getAttribute('required') !== null) {
@@ -248,24 +245,41 @@ const requiredField = () => {
     }
   }
 
+  notification.querySelector('.notification__close-button').addEventListener('click', evt => {
+    evt.preventDefault();
+    onCloseNotificationButtonHandler();
+  });
   submitButton.addEventListener('click', evt => {
     evt.preventDefault();
 
     if (errorsArray.length > 0) {
-      submitButton.classList.add('info-controls__submit-button--error');
-      notification.classList.remove('notification--show-success');
-      notification.classList.add('notification--show-error');
-      notification.querySelector('.notification__info').textContent = errorsArray.toString();
-      notification.querySelector('.notification__title').textContent = 'Обязательные поля не были заполнены!';
-      setTimeout(() => {
-        submitButton.classList.remove('info-controls__submit-button--error');
-      }, 1000);
+      submitError();
     } else {
-      notification.classList.remove('notification--show-error');
-      notification.classList.add('notification--show-success');
-      notification.querySelector('.notification__title').textContent = 'Документ был сохранён успешно.';
+      submitSuccess();
     }
   });
+
+  function onCloseNotificationButtonHandler() {
+    notification.classList.remove('notification--show-error');
+    notification.classList.remove('notification--show-success');
+  }
+
+  function submitError() {
+    submitButton.classList.add('info-controls__submit-button--error');
+    notification.classList.remove('notification--show-success');
+    notification.classList.add('notification--show-error');
+    notification.querySelector('.notification__info').textContent = errorsArray.toString();
+    notification.querySelector('.notification__title').textContent = requiredFieldsNotificationText;
+    setTimeout(() => {
+      submitButton.classList.remove('info-controls__submit-button--error');
+    }, 1000);
+  }
+
+  function submitSuccess() {
+    notification.classList.remove('notification--show-error');
+    notification.classList.add('notification--show-success');
+    notification.querySelector('.notification__title').textContent = saveDocumentSuccessText;
+  }
 
   function validateValue(evt) {
     const requireFieldName = evt.target.parentElement.querySelector('.edit-field__field-name').innerText;
@@ -283,8 +297,6 @@ const requiredField = () => {
 
       this.parentElement.classList.remove('edit-field--required');
     }
-
-    console.log(errorsArray);
   }
 };
 
@@ -2287,7 +2299,10 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menuInit)();
   (0,_modules_tcheme_control__WEBPACK_IMPORTED_MODULE_0__.tchemeControl)();
-  (0,_modules_required_field__WEBPACK_IMPORTED_MODULE_3__["default"])();
+
+  if (document.location.pathname === '/offer-edit.html' || document.location.pathname === '/henkel-admin/offer.html') {
+    (0,_modules_required_field__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  }
 
   if (document.location.pathname === '/offer.html' || document.location.pathname === '/henkel-admin/offer.html') {
     (0,_modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"])();
