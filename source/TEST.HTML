@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="Главная">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+    <xp:this.resources>
+
+    	<xp:styleSheet href="/dark.css"></xp:styleSheet>
+    	<xp:styleSheet href="/light.css"></xp:styleSheet>
+    	<xp:styleSheet href="/global-styles.css"></xp:styleSheet>
+    	<xp:styleSheet href="/main-blocks.css"></xp:styleSheet>
+    	<xp:styleSheet href="/dashboard.css"></xp:styleSheet>
+    	<xp:script src="/navigation.js" clientSide="true"></xp:script>
+    </xp:this.resources>
+
+
+
+    <link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		crossorigin="anonymous">
+	</link>
+	<head>
+	    <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+			<link rel="preconnect" href="https://fonts.gstatic.com"></link>
+  		<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600" rel="stylesheet"></link>
+
+		<meta name='color-scheme' content='light dark'></meta>
+			<meta name="theme-color" media='(prefers-color-scheme: light)' content="#c7cbcc"></meta>
+		<meta name="theme-color" media='(prefers-color-scheme: dark)' content="#273a43"></meta>
+
+		  <script>
+		    if(matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+		      document.documentElement.style.display = 'none';
+		      document.head.insertAdjacentHTML(
+		        'beforeend',
+		        '<link rel="stylesheet" href="light.css" onload="document.documentElement.style.display=\'\'"></link>'
+		      )
+		    }
+		  </script>
+	</head>
+
+
+	<div class="body">
+
+		<header class="header">
+		    <h1 class="visually-hidden">Fenix Henkel</h1>
+		    <div class="header__wrap header__wrap--no-search container">
+		      <button class="header__menu-btn neumorphic-button" type="button"><span class="visually-hidden">Открыть меню</span></button>
+		      <div class="header__welcome">
+		        <p class="header__welcome-text">С возвращением</p>
+		        <h2 class="header__name-title">Anton Ashurek</h2>
+		      </div>
+		      <div class="header__controls">
+		        <fieldset class="theme-switcher neumorphic-button">
+		          <legend class="visually-hidden">Цветовая тема</legend>
+		          <input class="theme-switcher__radio theme-switcher__radio--light" type="radio" name="color-scheme" value="light" aria-label="светлая тема"></input>
+		          <input class="theme-switcher__radio theme-switcher__radio--auto" type="radio" name="color-scheme" value="auto" aria-label="автоматическая тема" checked='checked'></input>
+		          <input class="theme-switcher__radio theme-switcher__radio--dark" type="radio" name="color-scheme" value="dark" aria-label="тёмная тема"></input>
+		          <div class="theme-switcher__status"></div>
+		        </fieldset>
+		        <button class="header__exit-button neumorphic-button" type="button"><span class="visually-hidden">выйти из порофиля</span></button>
+		      </div>
+		    </div>
+		  </header>
+
+		  <nav class="navigation">
+		    <ul class="navigation__main-list">
+		      <img class="navigation__logo" src="https://fenix.ceresit.ua/newHenkel.nsf/henkel-logo.png" width="300" height="180" alt="Овальный, красный логотип с надписью Henkel внутри"></img>
+		      <li>
+		        <ul class="navigation__list">
+		          <h2 class="navigation__title">Предложения</h2>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--offers-all" href="offers-all.html">Все предложения</a>
+		          </li>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--offers-date" href="offers-all.html">Предложения по дате</a>
+		          </li>
+		        </ul>
+		      </li>
+		      <li>
+		        <ul class="navigation__list">
+		          <h2 class="navigation__title">Инвестиции</h2>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--invest-all" href="offers-all.html">Все инвестиции</a>
+		          </li>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--invest-payer" href="offers-all.html">По плательщику</a>
+		          </li>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--invest-date" href="offers-all.html">По дате</a>
+		          </li>
+		        </ul>
+		      </li>
+		      <li>
+		        <ul class="navigation__list">
+		          <h2 class="navigation__title">Каталог продуктов</h2>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--product" href="offers-all.html">Все продукты</a>
+		          </li>
+		        </ul>
+		      </li>
+		      <li>
+		        <ul class="navigation__list">
+		          <h2 class="navigation__title">Система</h2>
+		          <li class="navigation__item">
+		            <a class="navigation__link navigation__link--profil" href="profil.html">Мои данные</a>
+		          </li>
+		        </ul>
+		      </li>
+		    </ul>
+		  </nav>
+
+		  <main class="main main--index">
+		    <ul class="dashboard container">
+		      <li class="dashboard__card">
+		        <a class="dashboard__link" href="offers-all.html">
+		          <p class="dashboard__card-title">Все Инвестиции</p>
+		        </a>
+		      </li>
+		      <li class="dashboard__card">
+		        <a class="dashboard__link" href="offers-all.html">
+		          <p class="dashboard__card-title">Все предложения</p>
+		        </a>
+		      </li>
+		    </ul>
+		  </main>
+
+		  <footer class="footer">
+		    <div class="footer__wrap container">
+		      <ul class="contacts-list">
+		        <li class="contacts-list__item">
+		          <a class="contacts-list__link contacts-list__link--instagram" href="https://www.instagram.com/henkel/">
+		            <span class="visually-hidden">Ссылка на профиль компании в instagram</span>
+		            <i class="fab fa-instagram"></i>
+		          </a>
+		        </li>
+		        <li class="contacts-list__item contacts-list__link--twitter">
+		          <a class="contacts-list__link" href="https://twitter.com/henkel">
+		            <span class="visually-hidden">Ссылка на профиль компании в twitter</span>
+		            <i class="fab fa-twitter"></i>
+		          </a>
+		        </li>
+		        <li class="contacts-list__item contacts-list__link--facebook">
+		          <a class="contacts-list__link" href="https://www.facebook.com/henkel/">
+		            <span class="visually-hidden">Ссылка на профиль компании в facebook</span>
+		            <i class="fab fa-facebook-f"></i>
+		          </a>
+		        </li>
+		      </ul>
+		      <p class="footer__suport">
+		        Если возник вопрос или что-то не получается, пишите.
+		        <a class="footer__sup-link" href="mailto:support@unicorn.com.pl">support@unicorn.com.pl</a>
+		      </p>
+		    </div>
+		  </footer>
+
+	</div>
+
+<style>
+
+  .theme-switcher {
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: none;
+  }
+
+  .theme-switcher:hover {
+    -webkit-box-shadow: var(--inner-shadow);
+            box-shadow: var(--inner-shadow);
+  }
+
+  /* Switcher Radio */
+  .theme-switcher__radio {
+    z-index: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    -webkit-transition: -webkit-filter 0.1s ease-in;
+    transition: -webkit-filter 0.1s ease-in;
+    -o-transition: filter 0.1s ease-in;
+    transition: filter 0.1s ease-in;
+    transition: filter 0.1s ease-in, -webkit-filter 0.1s ease-in;
+  }
+  .theme-switcher__radio:focus {
+    outline: none;
+  }
+
+  .theme-switcher__radio--light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 001-1 1 1 0 00-1-1H2a1 1 0 00-1 1 1 1 0 001 1zm18 0h2a1 1 0 001-1 1 1 0 00-1-1h-2a1 1 0 00-1 1 1 1 0 001 1zM11 2v2a1 1 0 001 1 1 1 0 001-1V2a1 1 0 00-1-1 1 1 0 00-1 1zm0 18v2a1 1 0 001 1 1 1 0 001-1v-2a1 1 0 00-2 0zM5.99 4.58a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06z'/%3E%3C/svg%3E");
+  }
+
+  .theme-switcher__radio--auto {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 15a3 3 0 100-6 3 3 0 000 6z'/%3E%3Cpath fill-rule='evenodd' d='M22 12a10 10 0 11-20 0 10 10 0 0120 0zm-2 0a8 8 0 11-16 0 8 8 0 0116 0z'/%3E%3C/svg%3E");
+  }
+
+  .theme-switcher__radio--dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3a9 9 0 108.9 7.64 5.39 5.39 0 01-9.2-5.61 5.4 5.4 0 011.66-1.93c-.44-.06-.9-.1-1.36-.1z'/%3E%3C/svg%3E");
+  }
+
+  /* Switcher Status */
+  .theme-switcher__status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle fill='black' cx='12' cy='12' r='12'/%3E%3C/svg%3E");
+    background-size: 30px;
+    background-position: center;
+    -webkit-transition: background-position 0.1s ease-in;
+    -o-transition: background-position 0.1s ease-in;
+    transition: background-position 0.1s ease-in;
+  }
+
+  .theme-switcher__radio:focus-visible ~ .theme-switcher__status {
+    -webkit-box-shadow: 0 0 0 2px black;
+            box-shadow: 0 0 0 2px black;
+  }
+
+  .theme-switcher__radio--light:checked ~ .theme-switcher__status {
+    background-position: left 6px center;
+  }
+
+  .theme-switcher__radio--auto:checked ~ .theme-switcher__status {
+    background-position: center center;
+  }
+
+  .theme-switcher__radio--dark:checked ~ .theme-switcher__status {
+    background-position: right 6px center;
+  }
+
+
+
+
+
+  :root {
+  --basic-font: 'Jost', 'Arial', sans-serif;
+
+  --standsrt-white: #ffffff;
+  --standart-black: #000000;
+
+  --standart-side-padding: 20px;
+  --standart-mobile-side-padding: 10px;
+
+  --index-table-header: 1;
+  --index-crumbs: 2;
+  --index-navigation-menu: 3;
+  --index-menu-btn: 4;
+  --index-redirect-preloader: 5;
+
+  --header-top-padding: 10px;
+  --exit-button-size: 40px;
+  --header-elements-gap: 10px;
+  --header-menu-btn-size: 50px;
+    --header-text-size: 18px;
+    --headet-text-weight: 500;
+    --header-subtext-size: 16px;
+    --header-subtext-weight: 300;
+
+
+  --search-width: 400px;
+  --search-border-radius: 15px;
+  --search-icon-size: 40px;
+  --search-input-padding: 10px;
+    --search-text-size: 18px;
+    --search-text-weight: 500;
+
+  --nav-width: 350px;
+  --nav-list-gap: 20px;
+  --nav-bottom-padding: 20px;
+  --nav-list-mobile-box-shadow: 10px 0 15px rgba(0, 0, 0, 0.3);
+  --nav-elements-padding: 10px;
+  --nav-link-icon-size: 35px;
+    --nav-title-size: 18px;
+    --nav-title-weight: 500;
+    --nav-link-size: 22px;
+    --nav-link-weight: 400;
+
+    --nav-current-item-hover-animation: all .3s ease;
+    --nav-link-hover-animation: all .1s linear;
+
+    --nav-icon-and-hover-border-radius: 8px;
+
+  --crumbs-top-padding: 10px;
+  --crumbs-font-size: 14px;
+  --crumbs-font-weight: 400;
+  --crumbs-hover-animation: all .1s linear;
+
+  --info-padding: 10px;
+  --info-item-title-font-size: 18px;
+  --info-item-title-mobile-font-size: 16px;
+  --info-title-font-weight: 500;
+  --info-font-size: 16px;
+  --info-mobile-font-size: 14px;
+  --info-font-weight: 400;
+  --info-text-color: #1D2127;
+
+  --footer-top-padding: 10px;
+  --footer-font-size: 13px;
+  --footer-font-weigth: 300;
+  --footer-contacts-list-icon-size: 40px;
+  --footer-contacts-list-icon-hover-shadow: 0px 0px 10px 6px rgba(0,0,0,0.1);
+
+  --preloader-background-color: rgba(0, 0, 0, 0.2);
+  --preloader-width: 250px;
+  --preloader-animation-element-size: 15px;
+    --preloader-font-size: 22px;
+    --preloader-font-weight: 600;
+    --preloader-font-line-height: 50px;
+
+
+  --edit-field-font-color: rgba(0,0,0, 0.8);
+  --edit-field-font-size: 18px;
+  --edit-field-font-weight: 400;
+  --edit-field-icon-size: 20px;
+  --edit-field-input-padding: 5px 10px 5px calc(var(--edit-field-icon-size) + 10px);
+
+  --notification-font-size: 14px;
+  --notification-font-weight: 400;
+}
+
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--basic-font);
+}
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--back-color);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var( --scrollbar-hover-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  display: -ms-grid;
+
+  display: grid;
+  -ms-grid-columns: -webkit-min-content 1fr;
+  -ms-grid-columns: min-content 1fr;
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  -ms-grid-rows: -webkit-min-content 1fr -webkit-min-content;
+  -ms-grid-rows: min-content 1fr min-content;
+  grid-template-rows: -webkit-min-content 1fr -webkit-min-content;
+  grid-template-rows: min-content 1fr min-content;
+      grid-template-areas:
+    "nav header"
+    "nav main"
+    "nav footer"
+  ;
+  background-color: var(--back-color);
+}
+
+.body--scrolloff {
+  overflow: hidden;
+}
+
+.body--no-footer {
+  -ms-grid-rows: min-content 1fr;
+  grid-template-rows: -webkit-min-content 1fr;
+  grid-template-rows: min-content 1fr;
+}
+
+.body--open-modal {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform ease-in .9s;
+  transition: -webkit-transform ease-in .9s;
+  -o-transition: transform ease-in .9s;
+  transition: transform ease-in .9s;
+  transition: transform ease-in .9s, -webkit-transform ease-in .9s;
+}
+
+.body--open-modal > .navigation,
+.body--open-modal > .header {
+	opacity: 0;
+}
+
+.body--open-modal > .main {
+	-webkit-animation:blowUpContent .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+	       animation:blowUpContent .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.body--close-modal {
+  overflow: auto;
+}
+
+.body--close-modal > .navigation,
+.body--close-modal > .header {
+	-webkit-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+	-webkit-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-name: easy-show-animation;
+	        animation-name: easy-show-animation;
+}
+
+.body--close-modal > .main {
+	-webkit-animation: blowDownContent .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+	        animation: blowDownContent .9s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+
+/*NEUMORPHIC*/
+
+.neumorphic-button {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: var(--button-shadow);
+          box-shadow: var(--button-shadow);
+  border-radius: 10px;
+  text-decoration: none;
+
+  cursor: pointer;
+  -webkit-transition: .2s ease;
+  -o-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.neumorphic-button:hover {
+	color: var(--main-color);
+}
+
+
+.neumorphic-button:active {
+	-webkit-box-shadow: var(--button-inner-shadow);
+	        box-shadow: var(--button-inner-shadow);
+}
+
+.neumorphic-button--inner {
+	-webkit-box-shadow: var(--button-inner-shadow);
+	        box-shadow: var(--button-inner-shadow);
+}
+
+.neumorphic-button--inner:active {
+	-webkit-box-shadow: var(--button-shadow);
+	        box-shadow: var(--button-shadow);
+}
+
+
+.neumorphic-input {
+  border: none;
+  -webkit-box-shadow: var(--button-inner-shadow);
+          box-shadow: var(--button-inner-shadow);
+  background-color: transparent;
+}
+
+.neumorphic-input:focus {
+	outline: none;
+	-webkit-box-shadow: var(--button-shadow);
+	        box-shadow: var(--button-shadow);
+}
+
+.neumorphic-input::-webkit-input-placeholder {
+	color: var(--sub-text-color);
+}
+
+.neumorphic-input::-moz-placeholder {
+	color: var(--sub-text-color);
+}
+
+.neumorphic-input:-ms-input-placeholder {
+	color: var(--sub-text-color);
+}
+
+.neumorphic-input::-ms-input-placeholder {
+	color: var(--sub-text-color);
+}
+
+.neumorphic-input::placeholder {
+	color: var(--sub-text-color);
+}
+
+/*used in edit-field component*/
+.neumorphic-colored-input {
+  border: none;
+  border-radius: 10px;
+
+  -webkit-box-shadow: var(--colored-inner-shadow);
+
+          box-shadow: var(--colored-inner-shadow);
+  background-color: transparent;
+
+  /* &:focus {
+    outline: none;
+    -webkit-box-shadow: var(--colored-shadow);
+            box-shadow: var(--colored-shadow);
+  } */
+}
+
+.neumorphic-colored-button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+
+  -webkit-box-shadow: var(--colored-shadow);
+
+          box-shadow: var(--colored-shadow);
+  background-color: transparent;
+}
+
+.neumorphic-colored-button:hover {
+	color: var(--main-color);
+}
+
+.neumorphic-colored-button:active {
+	outline: none;
+	-webkit-box-shadow: var(--colored-inner-shadow);
+	        box-shadow: var(--colored-inner-shadow);
+}
+
+/*THEME SWITCHER*/
+
+.theme-switcher {
+	position: relative;
+	margin: 0;
+	padding: 5px;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	border: none;
+}
+
+.theme-switcher:hover {
+	-webkit-box-shadow: var(--inner-shadow);
+	        box-shadow: var(--inner-shadow);
+}
+
+/* Switcher Radio */
+.theme-switcher__radio {
+	z-index: 1;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	     appearance: none;
+	margin: 0;
+	width: 32px;
+	height: 32px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 24px;
+	-webkit-transition: -webkit-filter 0.1s ease-in;
+	transition: -webkit-filter 0.1s ease-in;
+	-o-transition: filter 0.1s ease-in;
+	transition: filter 0.1s ease-in;
+	transition: filter 0.1s ease-in, -webkit-filter 0.1s ease-in;
+}
+.theme-switcher__radio:focus {
+	outline: none;
+}
+
+.theme-switcher__radio--light {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 001-1 1 1 0 00-1-1H2a1 1 0 00-1 1 1 1 0 001 1zm18 0h2a1 1 0 001-1 1 1 0 00-1-1h-2a1 1 0 00-1 1 1 1 0 001 1zM11 2v2a1 1 0 001 1 1 1 0 001-1V2a1 1 0 00-1-1 1 1 0 00-1 1zm0 18v2a1 1 0 001 1 1 1 0 001-1v-2a1 1 0 00-2 0zM5.99 4.58a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41l-1.06-1.06zm1.06-10.96a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06zM7.05 18.36a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06z'/%3E%3C/svg%3E");
+}
+
+.theme-switcher__radio--auto {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 15a3 3 0 100-6 3 3 0 000 6z'/%3E%3Cpath fill-rule='evenodd' d='M22 12a10 10 0 11-20 0 10 10 0 0120 0zm-2 0a8 8 0 11-16 0 8 8 0 0116 0z'/%3E%3C/svg%3E");
+}
+
+.theme-switcher__radio--dark {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3a9 9 0 108.9 7.64 5.39 5.39 0 01-9.2-5.61 5.4 5.4 0 011.66-1.93c-.44-.06-.9-.1-1.36-.1z'/%3E%3C/svg%3E");
+}
+
+/* Switcher Status */
+.theme-switcher__status {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle fill='black' cx='12' cy='12' r='12'/%3E%3C/svg%3E");
+	background-size: 30px;
+	background-position: center;
+	-webkit-transition: background-position 0.1s ease-in;
+	-o-transition: background-position 0.1s ease-in;
+	transition: background-position 0.1s ease-in;
+}
+
+.theme-switcher__radio:focus-visible ~ .theme-switcher__status {
+	-webkit-box-shadow: 0 0 0 2px black;
+	        box-shadow: 0 0 0 2px black;
+}
+
+.theme-switcher__radio--light:checked ~ .theme-switcher__status {
+	background-position: left 6px center;
+}
+
+.theme-switcher__radio--auto:checked ~ .theme-switcher__status {
+	background-position: center center;
+}
+
+.theme-switcher__radio--dark:checked ~ .theme-switcher__status {
+	background-position: right 6px center;
+}
+
+/*ANIMATIONS*/
+@-webkit-keyframes easy-show-animation {
+  0% { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes easy-show-animation {
+  0% { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes hide-mobile-btn {
+  0% { opacity: 1; }
+  10%  { opacity: 0; }
+  80% { opacity: 0; }
+  90% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+@keyframes hide-mobile-btn {
+  0% { opacity: 1; }
+  10%  { opacity: 0; }
+  80% { opacity: 0; }
+  90% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes load {
+	0% {
+		left: 0;
+		height: calc(var(--preloader-animation-element-size) * 2);
+		width: var(--preloader-animation-element-size);
+	}
+	50% {
+		height: calc(var(--preloader-animation-element-size) / 2.1);
+		width: calc(var(--preloader-animation-element-size) * 3);
+	}
+	100% {
+		left: calc(var(--preloader-width) - var(--preloader-animation-element-size));
+		height: calc(var(--preloader-animation-element-size) * 2);
+		width: var(--preloader-animation-element-size);
+	}
+}
+
+@keyframes load {
+	0% {
+		left: 0;
+		height: calc(var(--preloader-animation-element-size) * 2);
+		width: var(--preloader-animation-element-size);
+	}
+	50% {
+		height: calc(var(--preloader-animation-element-size) / 2.1);
+		width: calc(var(--preloader-animation-element-size) * 3);
+	}
+	100% {
+		left: calc(var(--preloader-width) - var(--preloader-animation-element-size));
+		height: calc(var(--preloader-animation-element-size) * 2);
+		width: var(--preloader-animation-element-size);
+	}
+}
+
+@-webkit-keyframes blowUpContent {
+  0% {
+    -webkit-transform:scale(1);
+            transform:scale(1);
+    opacity:1;
+  }
+  100% {
+    -webkit-transform:scale(.8);
+            transform:scale(.8);
+    opacity:0;
+  }
+}
+
+@keyframes blowUpContent {
+  0% {
+    -webkit-transform:scale(1);
+            transform:scale(1);
+    opacity:1;
+  }
+  100% {
+    -webkit-transform:scale(.8);
+            transform:scale(.8);
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes blowDownContent {
+  0% {
+    -webkit-transform:scale(.8);
+            transform:scale(.8);
+    opacity:0;
+  }
+  100% {
+    -webkit-transform:scale(1);
+            transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes blowDownContent {
+  0% {
+    -webkit-transform:scale(.8);
+            transform:scale(.8);
+    opacity:0;
+  }
+  100% {
+    -webkit-transform:scale(1);
+            transform:scale(1);
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
